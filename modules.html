@@ -1,0 +1,744 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>tgram - Tgram documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" /
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Tgram  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">Tgram  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/modules.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="tgram">
+<h1>tgram<a class="headerlink" href="#tgram" title="Link to this heading">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tgram.html">tgram package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.decorators">tgram.decorators module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators"><code class="docutils literal notranslate"><span class="pre">Decorators</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_all"><code class="docutils literal notranslate"><span class="pre">Decorators.on_all()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_business_connection"><code class="docutils literal notranslate"><span class="pre">Decorators.on_business_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_business_message"><code class="docutils literal notranslate"><span class="pre">Decorators.on_business_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_callback_query"><code class="docutils literal notranslate"><span class="pre">Decorators.on_callback_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_channel_post"><code class="docutils literal notranslate"><span class="pre">Decorators.on_channel_post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_chat_boost"><code class="docutils literal notranslate"><span class="pre">Decorators.on_chat_boost()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_chat_join_request"><code class="docutils literal notranslate"><span class="pre">Decorators.on_chat_join_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_chat_member"><code class="docutils literal notranslate"><span class="pre">Decorators.on_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_chosen_inline_result"><code class="docutils literal notranslate"><span class="pre">Decorators.on_chosen_inline_result()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_deleted_business_messages"><code class="docutils literal notranslate"><span class="pre">Decorators.on_deleted_business_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_edited_business_message"><code class="docutils literal notranslate"><span class="pre">Decorators.on_edited_business_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_edited_channel_post"><code class="docutils literal notranslate"><span class="pre">Decorators.on_edited_channel_post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_edited_message"><code class="docutils literal notranslate"><span class="pre">Decorators.on_edited_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_inline_query"><code class="docutils literal notranslate"><span class="pre">Decorators.on_inline_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_message"><code class="docutils literal notranslate"><span class="pre">Decorators.on_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_message_reaction"><code class="docutils literal notranslate"><span class="pre">Decorators.on_message_reaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_message_reaction_count"><code class="docutils literal notranslate"><span class="pre">Decorators.on_message_reaction_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_my_chat_member"><code class="docutils literal notranslate"><span class="pre">Decorators.on_my_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_poll"><code class="docutils literal notranslate"><span class="pre">Decorators.on_poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_poll_answer"><code class="docutils literal notranslate"><span class="pre">Decorators.on_poll_answer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_pre_checkout_query"><code class="docutils literal notranslate"><span class="pre">Decorators.on_pre_checkout_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_removed_chat_boost"><code class="docutils literal notranslate"><span class="pre">Decorators.on_removed_chat_boost()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.decorators.Decorators.on_shipping_query"><code class="docutils literal notranslate"><span class="pre">Decorators.on_shipping_query()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.errors">tgram.errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.errors.APIException"><code class="docutils literal notranslate"><span class="pre">APIException</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.filters">tgram.filters module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.Filter"><code class="docutils literal notranslate"><span class="pre">Filter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.chat"><code class="docutils literal notranslate"><span class="pre">chat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.chat_type_filter"><code class="docutils literal notranslate"><span class="pre">chat_type_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.command"><code class="docutils literal notranslate"><span class="pre">command()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.regex"><code class="docutils literal notranslate"><span class="pre">regex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.filters.user"><code class="docutils literal notranslate"><span class="pre">user()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.handlers">tgram.handlers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.handlers.Handler"><code class="docutils literal notranslate"><span class="pre">Handler</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers"><code class="docutils literal notranslate"><span class="pre">Handlers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.BUSINESS_CONNECTION"><code class="docutils literal notranslate"><span class="pre">Handlers.BUSINESS_CONNECTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.BUSINESS_MESSAGE"><code class="docutils literal notranslate"><span class="pre">Handlers.BUSINESS_MESSAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CALLBACK_QUERY"><code class="docutils literal notranslate"><span class="pre">Handlers.CALLBACK_QUERY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CHANNEL_POST"><code class="docutils literal notranslate"><span class="pre">Handlers.CHANNEL_POST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CHAT_BOOST"><code class="docutils literal notranslate"><span class="pre">Handlers.CHAT_BOOST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CHAT_JOIN_REQUEST"><code class="docutils literal notranslate"><span class="pre">Handlers.CHAT_JOIN_REQUEST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CHAT_MEMBER"><code class="docutils literal notranslate"><span class="pre">Handlers.CHAT_MEMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.CHOSEN_INLINE_RESULT"><code class="docutils literal notranslate"><span class="pre">Handlers.CHOSEN_INLINE_RESULT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.DELETED_BUSINESS_MESSAGES"><code class="docutils literal notranslate"><span class="pre">Handlers.DELETED_BUSINESS_MESSAGES</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.EDITED_BUSINESS_MESSAGE"><code class="docutils literal notranslate"><span class="pre">Handlers.EDITED_BUSINESS_MESSAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.EDITED_CHANNEL_POST"><code class="docutils literal notranslate"><span class="pre">Handlers.EDITED_CHANNEL_POST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.EDITED_MESSAGE"><code class="docutils literal notranslate"><span class="pre">Handlers.EDITED_MESSAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.INLINE_QUERY"><code class="docutils literal notranslate"><span class="pre">Handlers.INLINE_QUERY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.MESSAGE"><code class="docutils literal notranslate"><span class="pre">Handlers.MESSAGE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.MESSAGE_REACTION"><code class="docutils literal notranslate"><span class="pre">Handlers.MESSAGE_REACTION</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.MESSAGE_REACTION_COUNT"><code class="docutils literal notranslate"><span class="pre">Handlers.MESSAGE_REACTION_COUNT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.MY_CHAT_MEMBER"><code class="docutils literal notranslate"><span class="pre">Handlers.MY_CHAT_MEMBER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.POLL"><code class="docutils literal notranslate"><span class="pre">Handlers.POLL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.POLL_ANSWER"><code class="docutils literal notranslate"><span class="pre">Handlers.POLL_ANSWER</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.PRE_CHECKOUT_QUERY"><code class="docutils literal notranslate"><span class="pre">Handlers.PRE_CHECKOUT_QUERY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.REMOVED_CHAT_BOOST"><code class="docutils literal notranslate"><span class="pre">Handlers.REMOVED_CHAT_BOOST</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.handlers.Handlers.SHIPPING_QUERY"><code class="docutils literal notranslate"><span class="pre">Handlers.SHIPPING_QUERY</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.methods">tgram.methods module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.add_sticker_to_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.add_sticker_to_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.answer_callback_query"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.answer_callback_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.answer_inline_query"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.answer_inline_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.answer_pre_checkout_query"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.answer_pre_checkout_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.answer_shipping_query"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.answer_shipping_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.answer_web_app_query"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.answer_web_app_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.approve_chat_join_request"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.approve_chat_join_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.ban_chat_member"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.ban_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.ban_chat_sender_chat"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.ban_chat_sender_chat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.close"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.close_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.close_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.close_general_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.close_general_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.copy_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.copy_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.copy_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.copy_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.create_chat_invite_link"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.create_chat_invite_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.create_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.create_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.create_invoice_link"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.create_invoice_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.create_new_sticker_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.create_new_sticker_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.decline_chat_join_request"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.decline_chat_join_request()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_chat_photo"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_chat_photo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_chat_sticker_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_chat_sticker_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_my_commands"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_my_commands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_sticker_from_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_sticker_from_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_sticker_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_sticker_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.delete_webhook"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.delete_webhook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_chat_invite_link"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_chat_invite_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_general_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_general_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_message_caption"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_message_caption()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_message_live_location"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_message_live_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_message_media"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_message_media()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_message_reply_markup"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_message_reply_markup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.edit_message_text"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.edit_message_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.export_chat_invite_link"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.export_chat_invite_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.forward_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.forward_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.forward_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.forward_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_business_connection"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_business_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_chat"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_chat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_chat_administrators"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_chat_administrators()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_chat_member"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_chat_member_count"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_chat_member_count()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_chat_menu_button"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_chat_menu_button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_custom_emoji_stickers"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_custom_emoji_stickers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_file"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_forum_topic_icon_stickers"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_forum_topic_icon_stickers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_game_high_scores"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_game_high_scores()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_me"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_me()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_my_commands"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_my_commands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_my_default_administrator_rights"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_my_default_administrator_rights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_my_description"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_my_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_my_name"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_my_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_my_short_description"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_my_short_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_star_transactions"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_star_transactions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_sticker_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_sticker_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_updates"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_updates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_user_chat_boosts"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_user_chat_boosts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_user_profile_photos"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_user_profile_photos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.get_webhook_info"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.get_webhook_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.hide_general_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.hide_general_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.leave_chat"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.leave_chat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.log_out"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.log_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.pin_chat_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.pin_chat_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.promote_chat_member"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.promote_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.refund_star_payment"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.refund_star_payment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.reopen_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.reopen_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.reopen_general_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.reopen_general_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.replace_sticker_in_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.replace_sticker_in_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.restrict_chat_member"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.restrict_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.revoke_chat_invite_link"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.revoke_chat_invite_link()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_animation"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_animation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_audio"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_audio()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_chat_action"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_chat_action()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_contact"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_contact()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_dice"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_dice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_document"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_document()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_game"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_game()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_invoice"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_invoice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_location"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_media_group"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_media_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_photo"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_photo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_poll"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_sticker"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_sticker()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_venue"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_venue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_video"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_video()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_video_note"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_video_note()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.send_voice"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.send_voice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_administrator_custom_title"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_administrator_custom_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_description"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_menu_button"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_menu_button()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_permissions"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_permissions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_photo"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_photo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_sticker_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_sticker_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_chat_title"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_chat_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_custom_emoji_sticker_set_thumbnail"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_custom_emoji_sticker_set_thumbnail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_game_score"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_game_score()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_message_reaction"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_message_reaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_my_commands"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_my_commands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_my_default_administrator_rights"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_my_default_administrator_rights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_my_description"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_my_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_my_name"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_my_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_my_short_description"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_my_short_description()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_passport_data_errors"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_passport_data_errors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_emoji_list"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_emoji_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_keywords"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_keywords()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_mask_position"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_mask_position()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_position_in_set"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_position_in_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_set_thumbnail"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_set_thumbnail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_sticker_set_title"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_sticker_set_title()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.set_webhook"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.set_webhook()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.stop_message_live_location"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.stop_message_live_location()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.stop_poll"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.stop_poll()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unban_chat_member"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unban_chat_member()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unban_chat_sender_chat"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unban_chat_sender_chat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unhide_general_forum_topic"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unhide_general_forum_topic()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unpin_all_chat_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unpin_all_chat_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unpin_all_forum_topic_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unpin_all_forum_topic_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unpin_all_general_forum_topic_messages"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unpin_all_general_forum_topic_messages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.unpin_chat_message"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.unpin_chat_message()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.methods.TelegramBotMethods.upload_sticker_file"><code class="docutils literal notranslate"><span class="pre">TelegramBotMethods.upload_sticker_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.sync">tgram.sync module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.sync.async_to_sync"><code class="docutils literal notranslate"><span class="pre">async_to_sync()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.sync.wrap"><code class="docutils literal notranslate"><span class="pre">wrap()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.tgbot">tgram.tgbot module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.tgbot.Dispatcher"><code class="docutils literal notranslate"><span class="pre">Dispatcher</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.tgbot.Dispatcher.run_for_updates"><code class="docutils literal notranslate"><span class="pre">Dispatcher.run_for_updates()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.tgbot.TgBot"><code class="docutils literal notranslate"><span class="pre">TgBot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.tgbot.TgBot.add_handler"><code class="docutils literal notranslate"><span class="pre">TgBot.add_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.tgbot.TgBot.me"><code class="docutils literal notranslate"><span class="pre">TgBot.me</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.types">tgram.types module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Animation"><code class="docutils literal notranslate"><span class="pre">Animation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Audio"><code class="docutils literal notranslate"><span class="pre">Audio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundFill"><code class="docutils literal notranslate"><span class="pre">BackgroundFill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundFillFreeformGradient"><code class="docutils literal notranslate"><span class="pre">BackgroundFillFreeformGradient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundFillGradient"><code class="docutils literal notranslate"><span class="pre">BackgroundFillGradient</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundFillSolid"><code class="docutils literal notranslate"><span class="pre">BackgroundFillSolid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundType"><code class="docutils literal notranslate"><span class="pre">BackgroundType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundTypeChatTheme"><code class="docutils literal notranslate"><span class="pre">BackgroundTypeChatTheme</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundTypeFill"><code class="docutils literal notranslate"><span class="pre">BackgroundTypeFill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundTypePattern"><code class="docutils literal notranslate"><span class="pre">BackgroundTypePattern</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BackgroundTypeWallpaper"><code class="docutils literal notranslate"><span class="pre">BackgroundTypeWallpaper</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Birthdate"><code class="docutils literal notranslate"><span class="pre">Birthdate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommand"><code class="docutils literal notranslate"><span class="pre">BotCommand</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScope"><code class="docutils literal notranslate"><span class="pre">BotCommandScope</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeAllChatAdministrators"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeAllChatAdministrators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeAllGroupChats"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeAllGroupChats</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeAllPrivateChats"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeAllPrivateChats</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeChat"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeChat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeChatAdministrators"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeChatAdministrators</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeChatMember"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeChatMember</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotCommandScopeDefault"><code class="docutils literal notranslate"><span class="pre">BotCommandScopeDefault</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotDescription"><code class="docutils literal notranslate"><span class="pre">BotDescription</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotName"><code class="docutils literal notranslate"><span class="pre">BotName</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BotShortDescription"><code class="docutils literal notranslate"><span class="pre">BotShortDescription</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessConnection"><code class="docutils literal notranslate"><span class="pre">BusinessConnection</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessIntro"><code class="docutils literal notranslate"><span class="pre">BusinessIntro</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessLocation"><code class="docutils literal notranslate"><span class="pre">BusinessLocation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessMessagesDeleted"><code class="docutils literal notranslate"><span class="pre">BusinessMessagesDeleted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessOpeningHours"><code class="docutils literal notranslate"><span class="pre">BusinessOpeningHours</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.BusinessOpeningHoursInterval"><code class="docutils literal notranslate"><span class="pre">BusinessOpeningHoursInterval</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.CallbackGame"><code class="docutils literal notranslate"><span class="pre">CallbackGame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.CallbackQuery"><code class="docutils literal notranslate"><span class="pre">CallbackQuery</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Chat"><code class="docutils literal notranslate"><span class="pre">Chat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatAdministratorRights"><code class="docutils literal notranslate"><span class="pre">ChatAdministratorRights</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBackground"><code class="docutils literal notranslate"><span class="pre">ChatBackground</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoost"><code class="docutils literal notranslate"><span class="pre">ChatBoost</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostAdded"><code class="docutils literal notranslate"><span class="pre">ChatBoostAdded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostRemoved"><code class="docutils literal notranslate"><span class="pre">ChatBoostRemoved</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostSource"><code class="docutils literal notranslate"><span class="pre">ChatBoostSource</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostSourceGiftCode"><code class="docutils literal notranslate"><span class="pre">ChatBoostSourceGiftCode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostSourceGiveaway"><code class="docutils literal notranslate"><span class="pre">ChatBoostSourceGiveaway</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostSourcePremium"><code class="docutils literal notranslate"><span class="pre">ChatBoostSourcePremium</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatBoostUpdated"><code class="docutils literal notranslate"><span class="pre">ChatBoostUpdated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatFullInfo"><code class="docutils literal notranslate"><span class="pre">ChatFullInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatInviteLink"><code class="docutils literal notranslate"><span class="pre">ChatInviteLink</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatJoinRequest"><code class="docutils literal notranslate"><span class="pre">ChatJoinRequest</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatLocation"><code class="docutils literal notranslate"><span class="pre">ChatLocation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMember"><code class="docutils literal notranslate"><span class="pre">ChatMember</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberAdministrator"><code class="docutils literal notranslate"><span class="pre">ChatMemberAdministrator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberBanned"><code class="docutils literal notranslate"><span class="pre">ChatMemberBanned</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberLeft"><code class="docutils literal notranslate"><span class="pre">ChatMemberLeft</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberMember"><code class="docutils literal notranslate"><span class="pre">ChatMemberMember</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberOwner"><code class="docutils literal notranslate"><span class="pre">ChatMemberOwner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberRestricted"><code class="docutils literal notranslate"><span class="pre">ChatMemberRestricted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatMemberUpdated"><code class="docutils literal notranslate"><span class="pre">ChatMemberUpdated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatPermissions"><code class="docutils literal notranslate"><span class="pre">ChatPermissions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatPhoto"><code class="docutils literal notranslate"><span class="pre">ChatPhoto</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChatShared"><code class="docutils literal notranslate"><span class="pre">ChatShared</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ChosenInlineResult"><code class="docutils literal notranslate"><span class="pre">ChosenInlineResult</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Contact"><code class="docutils literal notranslate"><span class="pre">Contact</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Dice"><code class="docutils literal notranslate"><span class="pre">Dice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Document"><code class="docutils literal notranslate"><span class="pre">Document</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.EncryptedCredentials"><code class="docutils literal notranslate"><span class="pre">EncryptedCredentials</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.EncryptedPassportElement"><code class="docutils literal notranslate"><span class="pre">EncryptedPassportElement</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ExternalReplyInfo"><code class="docutils literal notranslate"><span class="pre">ExternalReplyInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.File"><code class="docutils literal notranslate"><span class="pre">File</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForceReply"><code class="docutils literal notranslate"><span class="pre">ForceReply</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForumTopic"><code class="docutils literal notranslate"><span class="pre">ForumTopic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForumTopicClosed"><code class="docutils literal notranslate"><span class="pre">ForumTopicClosed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForumTopicCreated"><code class="docutils literal notranslate"><span class="pre">ForumTopicCreated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForumTopicEdited"><code class="docutils literal notranslate"><span class="pre">ForumTopicEdited</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ForumTopicReopened"><code class="docutils literal notranslate"><span class="pre">ForumTopicReopened</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GameHighScore"><code class="docutils literal notranslate"><span class="pre">GameHighScore</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GeneralForumTopicHidden"><code class="docutils literal notranslate"><span class="pre">GeneralForumTopicHidden</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GeneralForumTopicUnhidden"><code class="docutils literal notranslate"><span class="pre">GeneralForumTopicUnhidden</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Giveaway"><code class="docutils literal notranslate"><span class="pre">Giveaway</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GiveawayCompleted"><code class="docutils literal notranslate"><span class="pre">GiveawayCompleted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GiveawayCreated"><code class="docutils literal notranslate"><span class="pre">GiveawayCreated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.GiveawayWinners"><code class="docutils literal notranslate"><span class="pre">GiveawayWinners</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InaccessibleMessage"><code class="docutils literal notranslate"><span class="pre">InaccessibleMessage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineKeyboardButton"><code class="docutils literal notranslate"><span class="pre">InlineKeyboardButton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineKeyboardMarkup"><code class="docutils literal notranslate"><span class="pre">InlineKeyboardMarkup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQuery"><code class="docutils literal notranslate"><span class="pre">InlineQuery</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultArticle"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultArticle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultAudio"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultAudio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedAudio"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedAudio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedDocument"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedDocument</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedGif"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedGif</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedMpeg4Gif"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedMpeg4Gif</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedPhoto"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedPhoto</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedSticker"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedSticker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedVideo"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedVideo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultCachedVoice"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultCachedVoice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultContact"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultContact</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultDocument"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultDocument</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultGame"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultGame</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultGif"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultGif</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultLocation"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultLocation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultMpeg4Gif"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultMpeg4Gif</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultPhoto"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultPhoto</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultVenue"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultVenue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultVideo"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultVideo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultVoice"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultVoice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InlineQueryResultsButton"><code class="docutils literal notranslate"><span class="pre">InlineQueryResultsButton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputContactMessageContent"><code class="docutils literal notranslate"><span class="pre">InputContactMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputInvoiceMessageContent"><code class="docutils literal notranslate"><span class="pre">InputInvoiceMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputLocationMessageContent"><code class="docutils literal notranslate"><span class="pre">InputLocationMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMediaAnimation"><code class="docutils literal notranslate"><span class="pre">InputMediaAnimation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMediaAudio"><code class="docutils literal notranslate"><span class="pre">InputMediaAudio</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMediaDocument"><code class="docutils literal notranslate"><span class="pre">InputMediaDocument</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMediaPhoto"><code class="docutils literal notranslate"><span class="pre">InputMediaPhoto</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMediaVideo"><code class="docutils literal notranslate"><span class="pre">InputMediaVideo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputMessageContent"><code class="docutils literal notranslate"><span class="pre">InputMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputPollOption"><code class="docutils literal notranslate"><span class="pre">InputPollOption</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputSticker"><code class="docutils literal notranslate"><span class="pre">InputSticker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputTextMessageContent"><code class="docutils literal notranslate"><span class="pre">InputTextMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.InputVenueMessageContent"><code class="docutils literal notranslate"><span class="pre">InputVenueMessageContent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Invoice"><code class="docutils literal notranslate"><span class="pre">Invoice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.KeyboardButton"><code class="docutils literal notranslate"><span class="pre">KeyboardButton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.KeyboardButtonPollType"><code class="docutils literal notranslate"><span class="pre">KeyboardButtonPollType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.KeyboardButtonRequestChat"><code class="docutils literal notranslate"><span class="pre">KeyboardButtonRequestChat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.KeyboardButtonRequestUsers"><code class="docutils literal notranslate"><span class="pre">KeyboardButtonRequestUsers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.LabeledPrice"><code class="docutils literal notranslate"><span class="pre">LabeledPrice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.LinkPreviewOptions"><code class="docutils literal notranslate"><span class="pre">LinkPreviewOptions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Location"><code class="docutils literal notranslate"><span class="pre">Location</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.LoginUrl"><code class="docutils literal notranslate"><span class="pre">LoginUrl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MaskPosition"><code class="docutils literal notranslate"><span class="pre">MaskPosition</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MenuButton"><code class="docutils literal notranslate"><span class="pre">MenuButton</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MenuButtonCommands"><code class="docutils literal notranslate"><span class="pre">MenuButtonCommands</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MenuButtonDefault"><code class="docutils literal notranslate"><span class="pre">MenuButtonDefault</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MenuButtonWebApp"><code class="docutils literal notranslate"><span class="pre">MenuButtonWebApp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageAutoDeleteTimerChanged"><code class="docutils literal notranslate"><span class="pre">MessageAutoDeleteTimerChanged</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageEntity"><code class="docutils literal notranslate"><span class="pre">MessageEntity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageId"><code class="docutils literal notranslate"><span class="pre">MessageId</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageOriginChannel"><code class="docutils literal notranslate"><span class="pre">MessageOriginChannel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageOriginChat"><code class="docutils literal notranslate"><span class="pre">MessageOriginChat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageOriginHiddenUser"><code class="docutils literal notranslate"><span class="pre">MessageOriginHiddenUser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageOriginUser"><code class="docutils literal notranslate"><span class="pre">MessageOriginUser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageReactionCountUpdated"><code class="docutils literal notranslate"><span class="pre">MessageReactionCountUpdated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.MessageReactionUpdated"><code class="docutils literal notranslate"><span class="pre">MessageReactionUpdated</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.OrderInfo"><code class="docutils literal notranslate"><span class="pre">OrderInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportData"><code class="docutils literal notranslate"><span class="pre">PassportData</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementError"><code class="docutils literal notranslate"><span class="pre">PassportElementError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorDataField"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorDataField</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorFile"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorFiles"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorFiles</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorFrontSide"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorFrontSide</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorReverseSide"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorReverseSide</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorSelfie"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorSelfie</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorTranslationFile"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorTranslationFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorTranslationFiles"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorTranslationFiles</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportElementErrorUnspecified"><code class="docutils literal notranslate"><span class="pre">PassportElementErrorUnspecified</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PassportFile"><code class="docutils literal notranslate"><span class="pre">PassportFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PhotoSize"><code class="docutils literal notranslate"><span class="pre">PhotoSize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Poll"><code class="docutils literal notranslate"><span class="pre">Poll</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PollAnswer"><code class="docutils literal notranslate"><span class="pre">PollAnswer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PollOption"><code class="docutils literal notranslate"><span class="pre">PollOption</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.PreCheckoutQuery"><code class="docutils literal notranslate"><span class="pre">PreCheckoutQuery</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ProximityAlertTriggered"><code class="docutils literal notranslate"><span class="pre">ProximityAlertTriggered</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReactionCount"><code class="docutils literal notranslate"><span class="pre">ReactionCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReactionType"><code class="docutils literal notranslate"><span class="pre">ReactionType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReactionTypeCustomEmoji"><code class="docutils literal notranslate"><span class="pre">ReactionTypeCustomEmoji</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReactionTypeEmoji"><code class="docutils literal notranslate"><span class="pre">ReactionTypeEmoji</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReplyKeyboardMarkup"><code class="docutils literal notranslate"><span class="pre">ReplyKeyboardMarkup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReplyKeyboardRemove"><code class="docutils literal notranslate"><span class="pre">ReplyKeyboardRemove</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ReplyParameters"><code class="docutils literal notranslate"><span class="pre">ReplyParameters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ResponseParameters"><code class="docutils literal notranslate"><span class="pre">ResponseParameters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.RevenueWithdrawalState"><code class="docutils literal notranslate"><span class="pre">RevenueWithdrawalState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.RevenueWithdrawalStateFailed"><code class="docutils literal notranslate"><span class="pre">RevenueWithdrawalStateFailed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.RevenueWithdrawalStatePending"><code class="docutils literal notranslate"><span class="pre">RevenueWithdrawalStatePending</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.RevenueWithdrawalStateSucceeded"><code class="docutils literal notranslate"><span class="pre">RevenueWithdrawalStateSucceeded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.SentWebAppMessage"><code class="docutils literal notranslate"><span class="pre">SentWebAppMessage</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.SharedUser"><code class="docutils literal notranslate"><span class="pre">SharedUser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ShippingAddress"><code class="docutils literal notranslate"><span class="pre">ShippingAddress</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ShippingOption"><code class="docutils literal notranslate"><span class="pre">ShippingOption</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.ShippingQuery"><code class="docutils literal notranslate"><span class="pre">ShippingQuery</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.StarTransaction"><code class="docutils literal notranslate"><span class="pre">StarTransaction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.StarTransactions"><code class="docutils literal notranslate"><span class="pre">StarTransactions</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Sticker"><code class="docutils literal notranslate"><span class="pre">Sticker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.StickerSet"><code class="docutils literal notranslate"><span class="pre">StickerSet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Story"><code class="docutils literal notranslate"><span class="pre">Story</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.SuccessfulPayment"><code class="docutils literal notranslate"><span class="pre">SuccessfulPayment</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.SwitchInlineQueryChosenChat"><code class="docutils literal notranslate"><span class="pre">SwitchInlineQueryChosenChat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.TextQuote"><code class="docutils literal notranslate"><span class="pre">TextQuote</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.TransactionPartner"><code class="docutils literal notranslate"><span class="pre">TransactionPartner</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.TransactionPartnerFragment"><code class="docutils literal notranslate"><span class="pre">TransactionPartnerFragment</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.TransactionPartnerOther"><code class="docutils literal notranslate"><span class="pre">TransactionPartnerOther</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.TransactionPartnerUser"><code class="docutils literal notranslate"><span class="pre">TransactionPartnerUser</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Type_"><code class="docutils literal notranslate"><span class="pre">Type_</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.types.Type_.default"><code class="docutils literal notranslate"><span class="pre">Type_.default()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Update"><code class="docutils literal notranslate"><span class="pre">Update</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.UserChatBoosts"><code class="docutils literal notranslate"><span class="pre">UserChatBoosts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.UserProfilePhotos"><code class="docutils literal notranslate"><span class="pre">UserProfilePhotos</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.UsersShared"><code class="docutils literal notranslate"><span class="pre">UsersShared</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Venue"><code class="docutils literal notranslate"><span class="pre">Venue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Video"><code class="docutils literal notranslate"><span class="pre">Video</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.VideoChatEnded"><code class="docutils literal notranslate"><span class="pre">VideoChatEnded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.VideoChatParticipantsInvited"><code class="docutils literal notranslate"><span class="pre">VideoChatParticipantsInvited</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.VideoChatScheduled"><code class="docutils literal notranslate"><span class="pre">VideoChatScheduled</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.VideoChatStarted"><code class="docutils literal notranslate"><span class="pre">VideoChatStarted</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.VideoNote"><code class="docutils literal notranslate"><span class="pre">VideoNote</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.Voice"><code class="docutils literal notranslate"><span class="pre">Voice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.WebAppData"><code class="docutils literal notranslate"><span class="pre">WebAppData</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.WebAppInfo"><code class="docutils literal notranslate"><span class="pre">WebAppInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.WebhookInfo"><code class="docutils literal notranslate"><span class="pre">WebhookInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.types.WriteAccessAllowed"><code class="docutils literal notranslate"><span class="pre">WriteAccessAllowed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram.utils">tgram.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.utils.get_file_name"><code class="docutils literal notranslate"><span class="pre">get_file_name()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tgram.html#module-tgram">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgram.html#tgram.TgBot"><code class="docutils literal notranslate"><span class="pre">TgBot</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.TgBot.add_handler"><code class="docutils literal notranslate"><span class="pre">TgBot.add_handler()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tgram.html#tgram.TgBot.me"><code class="docutils literal notranslate"><span class="pre">TgBot.me</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Zaid
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=4e2eecee"></script>
+    </body>
+</html>
