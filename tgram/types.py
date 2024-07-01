@@ -333,6 +333,7 @@ class ChatFullInfo(Type_):
         invite_link: "str" = None,
         pinned_message: "Message" = None,
         permissions: "ChatPermissions" = None,
+        can_send_paid_media: bool = None,
         slow_mode_delay: "int" = None,
         unrestrict_boost_count: "int" = None,
         message_auto_delete_time: "int" = None,
@@ -382,6 +383,7 @@ class ChatFullInfo(Type_):
         self.invite_link = invite_link
         self.pinned_message = pinned_message
         self.permissions = permissions
+        self.can_send_paid_media = can_send_paid_media
         self.slow_mode_delay = slow_mode_delay
         self.unrestrict_boost_count = unrestrict_boost_count
         self.message_auto_delete_time = message_auto_delete_time
@@ -445,6 +447,7 @@ class ChatFullInfo(Type_):
                 invite_link=d.get("invite_link"),
                 pinned_message=Message._parse(me=me, d=d.get("pinned_message")),
                 permissions=ChatPermissions._parse(me=me, d=d.get("permissions")),
+                can_send_paid_media=d.get("can_send_paid_media"),
                 slow_mode_delay=d.get("slow_mode_delay"),
                 unrestrict_boost_count=d.get("unrestrict_boost_count"),
                 message_auto_delete_time=d.get("message_auto_delete_time"),
@@ -497,6 +500,7 @@ class Message(Type_, MessageB):
         animation: "Animation" = None,
         audio: "Audio" = None,
         document: "Document" = None,
+        paid_media: "PaidMediaInfo" = None,
         photo: List["PhotoSize"] = None,
         sticker: "Sticker" = None,
         story: "Story" = None,
@@ -584,6 +588,7 @@ class Message(Type_, MessageB):
         self.animation = animation
         self.audio = audio
         self.document = document
+        self.paid_media = paid_media
         self.photo = photo
         self.sticker = sticker
         self.story = story
@@ -694,6 +699,7 @@ class Message(Type_, MessageB):
                 animation=Animation._parse(me=me, d=d.get("animation")),
                 audio=Audio._parse(me=me, d=d.get("audio")),
                 document=Document._parse(me=me, d=d.get("document")),
+                paid_media=PaidMediaInfo._parse(me=me, d=d.get("paid_media")),
                 photo=[PhotoSize._parse(me=me, d=i) for i in d.get("photo")]
                 if d.get("photo")
                 else None,
@@ -945,6 +951,7 @@ class ExternalReplyInfo(Type_):
         animation: "Animation" = None,
         audio: "Audio" = None,
         document: "Document" = None,
+        paid_media: "PaidMediaInfo" = None,
         photo: List["PhotoSize"] = None,
         sticker: "Sticker" = None,
         story: "Story" = None,
@@ -972,6 +979,7 @@ class ExternalReplyInfo(Type_):
         self.animation = animation
         self.audio = audio
         self.document = document
+        self.paid_media = paid_media
         self.photo = photo
         self.sticker = sticker
         self.story = story
@@ -1018,6 +1026,7 @@ class ExternalReplyInfo(Type_):
                 animation=Animation._parse(me=me, d=d.get("animation")),
                 audio=Audio._parse(me=me, d=d.get("audio")),
                 document=Document._parse(me=me, d=d.get("document")),
+                paid_media=PaidMediaInfo._parse(me=me, d=d.get("paid_media")),
                 photo=[PhotoSize._parse(me=me, d=i) for i in d.get("photo")]
                 if d.get("photo")
                 else None,
@@ -7397,30 +7406,17 @@ class PreCheckoutQuery(Type_):
         )
 
 
-class RevenueWithdrawalState(Type_):
-    def __init__(self, type: "str", me: "tgram.TgBot" = None, json: "dict" = None):
-        super().__init__(me=me, json=json)
-        self.type = type
-
-    @staticmethod
-    def _parse(
-        me: "tgram.TgBot" = None, d: dict = None
-    ) -> Optional["RevenueWithdrawalState"]:
-        return (
-            RevenueWithdrawalState(
-                me=me,
-                json=d,
-                type=d.get("type"),
-            )
-            if d
-            else None
-        )
+RevenueWithdrawalState = Union[
+    "RevenueWithdrawalStatePending",
+    "RevenueWithdrawalStateSucceeded",
+    "RevenueWithdrawalStateFailed",
+]
 
 
 class RevenueWithdrawalStatePending(Type_):
-    def __init__(self, type: "str", me: "tgram.TgBot" = None, json: "dict" = None):
+    def __init__(self, me: "tgram.TgBot" = None, json: "dict" = None):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "pending"
 
     @staticmethod
     def _parse(
@@ -7440,14 +7436,13 @@ class RevenueWithdrawalStatePending(Type_):
 class RevenueWithdrawalStateSucceeded(Type_):
     def __init__(
         self,
-        type: "str",
         date: "int",
         url: "str",
         me: "tgram.TgBot" = None,
         json: "dict" = None,
     ):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "succeeded"
         self.date = date
         self.url = url
 
@@ -7469,9 +7464,9 @@ class RevenueWithdrawalStateSucceeded(Type_):
 
 
 class RevenueWithdrawalStateFailed(Type_):
-    def __init__(self, type: "str", me: "tgram.TgBot" = None, json: "dict" = None):
+    def __init__(self, me: "tgram.TgBot" = None, json: "dict" = None):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "faield"
 
     @staticmethod
     def _parse(
@@ -7488,46 +7483,23 @@ class RevenueWithdrawalStateFailed(Type_):
         )
 
 
-class TransactionPartner(Type_):
-    def __init__(
-        self,
-        type: "str",
-        withdrawal_state: "RevenueWithdrawalState" = None,
-        me: "tgram.TgBot" = None,
-        json: "dict" = None,
-    ):
-        super().__init__(me=me, json=json)
-        self.type = type
-        self.withdrawal_state = withdrawal_state
-
-    @staticmethod
-    def _parse(
-        me: "tgram.TgBot" = None, d: dict = None
-    ) -> Optional["TransactionPartner"]:
-        return (
-            TransactionPartner(
-                me=me,
-                json=d,
-                type=d.get("type"),
-                withdrawal_state=RevenueWithdrawalState._parse(
-                    me=me, d=d.get("withdrawal_state")
-                ),
-            )
-            if d
-            else None
-        )
+TransactionPartner = Union[
+    "TransactionPartnerFragment",
+    "TransactionPartnerUser",
+    "TransactionPartnerOther",
+    "TransactionPartnerTelegramAds",
+]
 
 
 class TransactionPartnerFragment(Type_):
     def __init__(
         self,
-        type: "str",
         withdrawal_state: "RevenueWithdrawalState" = None,
         me: "tgram.TgBot" = None,
         json: "dict" = None,
     ):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "fragment"
         self.withdrawal_state = withdrawal_state
 
     @staticmethod
@@ -7539,8 +7511,20 @@ class TransactionPartnerFragment(Type_):
                 me=me,
                 json=d,
                 type=d.get("type"),
-                withdrawal_state=RevenueWithdrawalState._parse(
-                    me=me, d=d.get("withdrawal_state")
+                withdrawal_state=None
+                if not d.get("withdrawal_state")
+                else (
+                    RevenueWithdrawalStateSucceeded._parse(
+                        me=me, d=d.get("withdrawal_state")
+                    )
+                    if d["type"] == "succeeded"
+                    else RevenueWithdrawalStateFailed._parse(
+                        me=me, d=d.get("withdrawal_state")
+                    )
+                    if d["type"] == "failed"
+                    else RevenueWithdrawalStatePending._parse(
+                        me=me, d=d.get("withdrawal_state")
+                    )
                 ),
             )
             if d
@@ -7550,11 +7534,16 @@ class TransactionPartnerFragment(Type_):
 
 class TransactionPartnerUser(Type_):
     def __init__(
-        self, type: "str", user: "User", me: "tgram.TgBot" = None, json: "dict" = None
+        self,
+        user: "User",
+        invoice_payload: "str" = None,
+        me: "tgram.TgBot" = None,
+        json: "dict" = None,
     ):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "user"
         self.user = user
+        self.invoice_payload = invoice_payload
 
     @staticmethod
     def _parse(
@@ -7566,6 +7555,7 @@ class TransactionPartnerUser(Type_):
                 json=d,
                 type=d.get("type"),
                 user=User._parse(me=me, d=d.get("user")),
+                invoice_payload=d.get("invoice_payload"),
             )
             if d
             else None
@@ -7573,9 +7563,9 @@ class TransactionPartnerUser(Type_):
 
 
 class TransactionPartnerOther(Type_):
-    def __init__(self, type: "str", me: "tgram.TgBot" = None, json: "dict" = None):
+    def __init__(self, me: "tgram.TgBot" = None, json: "dict" = None):
         super().__init__(me=me, json=json)
-        self.type = type
+        self.type = "other"
 
     @staticmethod
     def _parse(
@@ -7621,6 +7611,26 @@ class StarTransaction(Type_):
                 date=d.get("date"),
                 source=TransactionPartner._parse(me=me, d=d.get("source")),
                 receiver=TransactionPartner._parse(me=me, d=d.get("receiver")),
+            )
+            if d
+            else None
+        )
+
+
+class TransactionPartnerTelegramAds(Type_):
+    def __init__(self, me: "tgram.TgBot" = None, json: "dict" = None):
+        super().__init__(me=me, json=json)
+        self.type = "telegram_ads"
+
+    @staticmethod
+    def _parse(
+        me: "tgram.TgBot" = None, d: dict = None
+    ) -> Optional["TransactionPartnerTelegramAds"]:
+        return (
+            TransactionPartnerTelegramAds(
+                me=me,
+                json=d,
+                type=d.get("type"),
             )
             if d
             else None
@@ -8261,6 +8271,191 @@ class GameHighScore(Type_):
                 position=d.get("position"),
                 user=User._parse(me=me, d=d.get("user")),
                 score=d.get("score"),
+            )
+            if d
+            else None
+        )
+
+
+class PaidMediaInfo(Type_):
+    def __init__(
+        self,
+        star_count: "int",
+        paid_media: List["PaidMedia"],
+        me: "tgram.TgBot" = None,
+        json: "dict" = None,
+    ):
+        super().__init__(me=me, json=json)
+        self.star_count = star_count
+        self.paid_media = paid_media
+
+    @staticmethod
+    def _parse(me: "tgram.TgBot" = None, d: dict = None) -> Optional["PaidMediaInfo"]:
+        return (
+            PaidMediaInfo(
+                me=me,
+                json=d,
+                star_count=d.get("star_count"),
+                paid_media=[
+                    PaidMediaPreview._parse(me=me, d=i)
+                    if i["type"] == "preview"
+                    else PaidMediaPhoto._parse(me=me, d=i)
+                    if i["type"] == "photo"
+                    else PaidMediaVideo._parse(me=me, d=i)
+                    for i in d.get("paid_media")
+                ]
+                if d.get("paid_media")
+                else None,
+            )
+            if d
+            else None
+        )
+
+
+PaidMedia = Union["PaidMediaPreview", "PaidMediaPhoto", "PaidMediaVideo"]
+
+
+class PaidMediaPreview(Type_):
+    def __init__(
+        self,
+        width: "int" = None,
+        height: "int" = None,
+        duration: "int" = None,
+        me: "tgram.TgBot" = None,
+        json: "dict" = None,
+    ):
+        super().__init__(me=me, json=json)
+        self.type = "preview"
+        self.width = width
+        self.height = height
+        self.duration = duration
+
+    @staticmethod
+    def _parse(
+        me: "tgram.TgBot" = None, d: dict = None
+    ) -> Optional["PaidMediaPreview"]:
+        return (
+            PaidMediaPreview(
+                me=me,
+                json=d,
+                type=d.get("type"),
+                width=d.get("width"),
+                height=d.get("height"),
+                duration=d.get("duration"),
+            )
+            if d
+            else None
+        )
+
+
+class PaidMediaPhoto(Type_):
+    def __init__(
+        self,
+        photo: List["PhotoSize"],
+        me: "tgram.TgBot" = None,
+        json: "dict" = None,
+    ):
+        super().__init__(me=me, json=json)
+        self.type = "photo"
+        self.photo = photo
+
+    @staticmethod
+    def _parse(me: "tgram.TgBot" = None, d: dict = None) -> Optional["PaidMediaPhoto"]:
+        return (
+            PaidMediaPhoto(
+                me=me,
+                json=d,
+                type=d.get("type"),
+                photo=[PhotoSize._parse(me=me, d=i) for i in d.get("photo")]
+                if d.get("photo")
+                else None,
+            )
+            if d
+            else None
+        )
+
+
+class PaidMediaVideo(Type_):
+    def __init__(self, video: "Video", me: "tgram.TgBot" = None, json: "dict" = None):
+        super().__init__(me=me, json=json)
+        self.type = "video"
+        self.video = video
+
+    @staticmethod
+    def _parse(me: "tgram.TgBot" = None, d: dict = None) -> Optional["PaidMediaVideo"]:
+        return (
+            PaidMediaVideo(
+                me=me,
+                json=d,
+                type=d.get("type"),
+                video=Video._parse(me=me, d=d.get("video")),
+            )
+            if d
+            else None
+        )
+
+
+InputPaidMedia = Union["InputPaidMediaPhoto", "InputPaidMediaVideo"]
+
+
+class InputPaidMediaPhoto(Type_):
+    def __init__(self, media: "str", me: "tgram.TgBot" = None, json: "dict" = None):
+        super().__init__(me=me, json=json)
+        self.type = "photo"
+        self.media = media
+
+    @staticmethod
+    def _parse(
+        me: "tgram.TgBot" = None, d: dict = None
+    ) -> Optional["InputPaidMediaPhoto"]:
+        return (
+            InputPaidMediaPhoto(
+                me=me,
+                json=d,
+                type=d.get("type"),
+                media=d.get("media"),
+            )
+            if d
+            else None
+        )
+
+
+class InputPaidMediaVideo(Type_):
+    def __init__(
+        self,
+        media: "str",
+        thumbnail: Union["InputFile", "str"] = None,
+        width: "int" = None,
+        height: "int" = None,
+        duration: "int" = None,
+        supports_streaming: "bool" = None,
+        me: "tgram.TgBot" = None,
+        json: "dict" = None,
+    ):
+        super().__init__(me=me, json=json)
+        self.type = "video"
+        self.media = media
+        self.thumbnail = thumbnail
+        self.width = width
+        self.height = height
+        self.duration = duration
+        self.supports_streaming = supports_streaming
+
+    @staticmethod
+    def _parse(
+        me: "tgram.TgBot" = None, d: dict = None
+    ) -> Optional["InputPaidMediaVideo"]:
+        return (
+            InputPaidMediaVideo(
+                me=me,
+                json=d,
+                type=d.get("type"),
+                media=d.get("media"),
+                thumbnail=d.get("thumbnail"),
+                width=d.get("width"),
+                height=d.get("height"),
+                duration=d.get("duration"),
+                supports_streaming=d.get("supports_streaming"),
             )
             if d
             else None
