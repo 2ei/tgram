@@ -1,0 +1,535 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" />
+
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>tgram.methods - Tgram documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../index.html"><div class="brand">Tgram  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../index.html">
+  
+  
+  <span class="sidebar-brand-text">Tgram  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>Source code for tgram.methods</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.add_sticker_to_set</span> <span class="kn">import</span> <span class="n">AddStickerToSet</span>
+<span class="kn">from</span> <span class="nn">.answer_callback_query</span> <span class="kn">import</span> <span class="n">AnswerCallbackQuery</span>
+<span class="kn">from</span> <span class="nn">.answer_inline_query</span> <span class="kn">import</span> <span class="n">AnswerInlineQuery</span>
+<span class="kn">from</span> <span class="nn">.answer_pre_checkout_query</span> <span class="kn">import</span> <span class="n">AnswerPreCheckoutQuery</span>
+<span class="kn">from</span> <span class="nn">.answer_shipping_query</span> <span class="kn">import</span> <span class="n">AnswerShippingQuery</span>
+<span class="kn">from</span> <span class="nn">.answer_web_app_query</span> <span class="kn">import</span> <span class="n">AnswerWebAppQuery</span>
+<span class="kn">from</span> <span class="nn">.approve_chat_join_request</span> <span class="kn">import</span> <span class="n">ApproveChatJoinRequest</span>
+<span class="kn">from</span> <span class="nn">.ask</span> <span class="kn">import</span> <span class="n">Ask</span>
+<span class="kn">from</span> <span class="nn">.ban_chat_member</span> <span class="kn">import</span> <span class="n">BanChatMember</span>
+<span class="kn">from</span> <span class="nn">.ban_chat_sender_chat</span> <span class="kn">import</span> <span class="n">BanChatSenderChat</span>
+<span class="kn">from</span> <span class="nn">.close</span> <span class="kn">import</span> <span class="n">Close</span>
+<span class="kn">from</span> <span class="nn">.close_forum_topic</span> <span class="kn">import</span> <span class="n">CloseForumTopic</span>
+<span class="kn">from</span> <span class="nn">.close_general_forum_topic</span> <span class="kn">import</span> <span class="n">CloseGeneralForumTopic</span>
+<span class="kn">from</span> <span class="nn">.copy_message</span> <span class="kn">import</span> <span class="n">CopyMessage</span>
+<span class="kn">from</span> <span class="nn">.copy_messages</span> <span class="kn">import</span> <span class="n">CopyMessages</span>
+<span class="kn">from</span> <span class="nn">.create_chat_invite_link</span> <span class="kn">import</span> <span class="n">CreateChatInviteLink</span>
+<span class="kn">from</span> <span class="nn">.create_forum_topic</span> <span class="kn">import</span> <span class="n">CreateForumTopic</span>
+<span class="kn">from</span> <span class="nn">.create_invoice_link</span> <span class="kn">import</span> <span class="n">CreateInvoiceLink</span>
+<span class="kn">from</span> <span class="nn">.create_new_sticker_set</span> <span class="kn">import</span> <span class="n">CreateNewStickerSet</span>
+<span class="kn">from</span> <span class="nn">.decline_chat_join_request</span> <span class="kn">import</span> <span class="n">DeclineChatJoinRequest</span>
+<span class="kn">from</span> <span class="nn">.delete_chat_photo</span> <span class="kn">import</span> <span class="n">DeleteChatPhoto</span>
+<span class="kn">from</span> <span class="nn">.delete_chat_sticker_set</span> <span class="kn">import</span> <span class="n">DeleteChatStickerSet</span>
+<span class="kn">from</span> <span class="nn">.delete_forum_topic</span> <span class="kn">import</span> <span class="n">DeleteForumTopic</span>
+<span class="kn">from</span> <span class="nn">.delete_message</span> <span class="kn">import</span> <span class="n">DeleteMessage</span>
+<span class="kn">from</span> <span class="nn">.delete_messages</span> <span class="kn">import</span> <span class="n">DeleteMessages</span>
+<span class="kn">from</span> <span class="nn">.delete_my_commands</span> <span class="kn">import</span> <span class="n">DeleteMyCommands</span>
+<span class="kn">from</span> <span class="nn">.delete_sticker_from_set</span> <span class="kn">import</span> <span class="n">DeleteStickerFromSet</span>
+<span class="kn">from</span> <span class="nn">.delete_sticker_set</span> <span class="kn">import</span> <span class="n">DeleteStickerSet</span>
+<span class="kn">from</span> <span class="nn">.delete_webhook</span> <span class="kn">import</span> <span class="n">DeleteWebhook</span>
+<span class="kn">from</span> <span class="nn">.download_file</span> <span class="kn">import</span> <span class="n">DownloadFile</span>
+<span class="kn">from</span> <span class="nn">.edit_chat_invite_link</span> <span class="kn">import</span> <span class="n">EditChatInviteLink</span>
+<span class="kn">from</span> <span class="nn">.edit_forum_topic</span> <span class="kn">import</span> <span class="n">EditForumTopic</span>
+<span class="kn">from</span> <span class="nn">.edit_general_forum_topic</span> <span class="kn">import</span> <span class="n">EditGeneralForumTopic</span>
+<span class="kn">from</span> <span class="nn">.edit_message_caption</span> <span class="kn">import</span> <span class="n">EditMessageCaption</span>
+<span class="kn">from</span> <span class="nn">.edit_message_live_location</span> <span class="kn">import</span> <span class="n">EditMessageLiveLocation</span>
+<span class="kn">from</span> <span class="nn">.edit_message_media</span> <span class="kn">import</span> <span class="n">EditMessageMedia</span>
+<span class="kn">from</span> <span class="nn">.edit_message_reply_markup</span> <span class="kn">import</span> <span class="n">EditMessageReplyMarkup</span>
+<span class="kn">from</span> <span class="nn">.edit_message_text</span> <span class="kn">import</span> <span class="n">EditMessageText</span>
+<span class="kn">from</span> <span class="nn">.export_chat_invite_link</span> <span class="kn">import</span> <span class="n">ExportChatInviteLink</span>
+<span class="kn">from</span> <span class="nn">.forward_message</span> <span class="kn">import</span> <span class="n">ForwardMessage</span>
+<span class="kn">from</span> <span class="nn">.forward_messages</span> <span class="kn">import</span> <span class="n">ForwardMessages</span>
+<span class="kn">from</span> <span class="nn">.get_business_connection</span> <span class="kn">import</span> <span class="n">GetBusinessConnection</span>
+<span class="kn">from</span> <span class="nn">.get_chat</span> <span class="kn">import</span> <span class="n">GetChat</span>
+<span class="kn">from</span> <span class="nn">.get_chat_administrators</span> <span class="kn">import</span> <span class="n">GetChatAdministrators</span>
+<span class="kn">from</span> <span class="nn">.get_chat_member</span> <span class="kn">import</span> <span class="n">GetChatMember</span>
+<span class="kn">from</span> <span class="nn">.get_chat_member_count</span> <span class="kn">import</span> <span class="n">GetChatMemberCount</span>
+<span class="kn">from</span> <span class="nn">.get_chat_menu_button</span> <span class="kn">import</span> <span class="n">GetChatMenuButton</span>
+<span class="kn">from</span> <span class="nn">.get_custom_emoji_stickers</span> <span class="kn">import</span> <span class="n">GetCustomEmojiStickers</span>
+<span class="kn">from</span> <span class="nn">.get_file</span> <span class="kn">import</span> <span class="n">GetFile</span>
+<span class="kn">from</span> <span class="nn">.get_file_url</span> <span class="kn">import</span> <span class="n">GetFileUrl</span>
+<span class="kn">from</span> <span class="nn">.get_forum_topic_icon_stickers</span> <span class="kn">import</span> <span class="n">GetForumTopicIconStickers</span>
+<span class="kn">from</span> <span class="nn">.get_game_high_scores</span> <span class="kn">import</span> <span class="n">GetGameHighScores</span>
+<span class="kn">from</span> <span class="nn">.get_me</span> <span class="kn">import</span> <span class="n">GetMe</span>
+<span class="kn">from</span> <span class="nn">.get_my_commands</span> <span class="kn">import</span> <span class="n">GetMyCommands</span>
+<span class="kn">from</span> <span class="nn">.get_my_default_administrator_rights</span> <span class="kn">import</span> <span class="n">GetMyDefaultAdministratorRights</span>
+<span class="kn">from</span> <span class="nn">.get_my_description</span> <span class="kn">import</span> <span class="n">GetMyDescription</span>
+<span class="kn">from</span> <span class="nn">.get_my_name</span> <span class="kn">import</span> <span class="n">GetMyName</span>
+<span class="kn">from</span> <span class="nn">.get_my_short_description</span> <span class="kn">import</span> <span class="n">GetMyShortDescription</span>
+<span class="kn">from</span> <span class="nn">.get_star_transactions</span> <span class="kn">import</span> <span class="n">GetStarTransactions</span>
+<span class="kn">from</span> <span class="nn">.get_sticker_set</span> <span class="kn">import</span> <span class="n">GetStickerSet</span>
+<span class="kn">from</span> <span class="nn">.get_updates</span> <span class="kn">import</span> <span class="n">GetUpdates</span>
+<span class="kn">from</span> <span class="nn">.get_user_chat_boosts</span> <span class="kn">import</span> <span class="n">GetUserChatBoosts</span>
+<span class="kn">from</span> <span class="nn">.get_user_profile_photos</span> <span class="kn">import</span> <span class="n">GetUserProfilePhotos</span>
+<span class="kn">from</span> <span class="nn">.get_webhook_info</span> <span class="kn">import</span> <span class="n">GetWebhookInfo</span>
+<span class="kn">from</span> <span class="nn">.hide_general_forum_topic</span> <span class="kn">import</span> <span class="n">HideGeneralForumTopic</span>
+<span class="kn">from</span> <span class="nn">.leave_chat</span> <span class="kn">import</span> <span class="n">LeaveChat</span>
+<span class="kn">from</span> <span class="nn">.log_out</span> <span class="kn">import</span> <span class="n">LogOut</span>
+<span class="kn">from</span> <span class="nn">.pin_chat_message</span> <span class="kn">import</span> <span class="n">PinChatMessage</span>
+<span class="kn">from</span> <span class="nn">.promote_chat_member</span> <span class="kn">import</span> <span class="n">PromoteChatMember</span>
+<span class="kn">from</span> <span class="nn">.refund_star_payment</span> <span class="kn">import</span> <span class="n">RefundStarPayment</span>
+<span class="kn">from</span> <span class="nn">.reopen_forum_topic</span> <span class="kn">import</span> <span class="n">ReopenForumTopic</span>
+<span class="kn">from</span> <span class="nn">.reopen_general_forum_topic</span> <span class="kn">import</span> <span class="n">ReopenGeneralForumTopic</span>
+<span class="kn">from</span> <span class="nn">.replace_sticker_in_set</span> <span class="kn">import</span> <span class="n">ReplaceStickerInSet</span>
+<span class="kn">from</span> <span class="nn">.restrict_chat_member</span> <span class="kn">import</span> <span class="n">RestrictChatMember</span>
+<span class="kn">from</span> <span class="nn">.revoke_chat_invite_link</span> <span class="kn">import</span> <span class="n">RevokeChatInviteLink</span>
+<span class="kn">from</span> <span class="nn">.send_animation</span> <span class="kn">import</span> <span class="n">SendAnimation</span>
+<span class="kn">from</span> <span class="nn">.send_audio</span> <span class="kn">import</span> <span class="n">SendAudio</span>
+<span class="kn">from</span> <span class="nn">.send_chat_action</span> <span class="kn">import</span> <span class="n">SendChatAction</span>
+<span class="kn">from</span> <span class="nn">.send_contact</span> <span class="kn">import</span> <span class="n">SendContact</span>
+<span class="kn">from</span> <span class="nn">.send_dice</span> <span class="kn">import</span> <span class="n">SendDice</span>
+<span class="kn">from</span> <span class="nn">.send_document</span> <span class="kn">import</span> <span class="n">SendDocument</span>
+<span class="kn">from</span> <span class="nn">.send_game</span> <span class="kn">import</span> <span class="n">SendGame</span>
+<span class="kn">from</span> <span class="nn">.send_invoice</span> <span class="kn">import</span> <span class="n">SendInvoice</span>
+<span class="kn">from</span> <span class="nn">.send_location</span> <span class="kn">import</span> <span class="n">SendLocation</span>
+<span class="kn">from</span> <span class="nn">.send_media_from_file_id</span> <span class="kn">import</span> <span class="n">SendMediaFromFileId</span>
+<span class="kn">from</span> <span class="nn">.send_media_group</span> <span class="kn">import</span> <span class="n">SendMediaGroup</span>
+<span class="kn">from</span> <span class="nn">.send_message</span> <span class="kn">import</span> <span class="n">SendMessage</span>
+<span class="kn">from</span> <span class="nn">.send_paid_media</span> <span class="kn">import</span> <span class="n">SendPaidMedia</span>
+<span class="kn">from</span> <span class="nn">.send_photo</span> <span class="kn">import</span> <span class="n">SendPhoto</span>
+<span class="kn">from</span> <span class="nn">.send_poll</span> <span class="kn">import</span> <span class="n">SendPoll</span>
+<span class="kn">from</span> <span class="nn">.send_sticker</span> <span class="kn">import</span> <span class="n">SendSticker</span>
+<span class="kn">from</span> <span class="nn">.send_venue</span> <span class="kn">import</span> <span class="n">SendVenue</span>
+<span class="kn">from</span> <span class="nn">.send_video</span> <span class="kn">import</span> <span class="n">SendVideo</span>
+<span class="kn">from</span> <span class="nn">.send_video_note</span> <span class="kn">import</span> <span class="n">SendVideoNote</span>
+<span class="kn">from</span> <span class="nn">.send_voice</span> <span class="kn">import</span> <span class="n">SendVoice</span>
+<span class="kn">from</span> <span class="nn">.set_chat_administrator_custom_title</span> <span class="kn">import</span> <span class="n">SetChatAdministratorCustomTitle</span>
+<span class="kn">from</span> <span class="nn">.set_chat_description</span> <span class="kn">import</span> <span class="n">SetChatDescription</span>
+<span class="kn">from</span> <span class="nn">.set_chat_menu_button</span> <span class="kn">import</span> <span class="n">SetChatMenuButton</span>
+<span class="kn">from</span> <span class="nn">.set_chat_permissions</span> <span class="kn">import</span> <span class="n">SetChatPermissions</span>
+<span class="kn">from</span> <span class="nn">.set_chat_photo</span> <span class="kn">import</span> <span class="n">SetChatPhoto</span>
+<span class="kn">from</span> <span class="nn">.set_chat_sticker_set</span> <span class="kn">import</span> <span class="n">SetChatStickerSet</span>
+<span class="kn">from</span> <span class="nn">.set_chat_title</span> <span class="kn">import</span> <span class="n">SetChatTitle</span>
+<span class="kn">from</span> <span class="nn">.set_custom_emoji_sticker_set_thumbnail</span> <span class="kn">import</span> <span class="n">SetCustomEmojiStickerSetThumbnail</span>
+<span class="kn">from</span> <span class="nn">.set_game_score</span> <span class="kn">import</span> <span class="n">SetGameScore</span>
+<span class="kn">from</span> <span class="nn">.set_message_reaction</span> <span class="kn">import</span> <span class="n">SetMessageReaction</span>
+<span class="kn">from</span> <span class="nn">.set_my_commands</span> <span class="kn">import</span> <span class="n">SetMyCommands</span>
+<span class="kn">from</span> <span class="nn">.set_my_default_administrator_rights</span> <span class="kn">import</span> <span class="n">SetMyDefaultAdministratorRights</span>
+<span class="kn">from</span> <span class="nn">.set_my_description</span> <span class="kn">import</span> <span class="n">SetMyDescription</span>
+<span class="kn">from</span> <span class="nn">.set_my_name</span> <span class="kn">import</span> <span class="n">SetMyName</span>
+<span class="kn">from</span> <span class="nn">.set_my_short_description</span> <span class="kn">import</span> <span class="n">SetMyShortDescription</span>
+<span class="kn">from</span> <span class="nn">.set_passport_data_errors</span> <span class="kn">import</span> <span class="n">SetPassportDataErrors</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_emoji_list</span> <span class="kn">import</span> <span class="n">SetStickerEmojiList</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_keywords</span> <span class="kn">import</span> <span class="n">SetStickerKeywords</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_mask_position</span> <span class="kn">import</span> <span class="n">SetStickerMaskPosition</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_position_in_set</span> <span class="kn">import</span> <span class="n">SetStickerPositionInSet</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_set_thumbnail</span> <span class="kn">import</span> <span class="n">SetStickerSetThumbnail</span>
+<span class="kn">from</span> <span class="nn">.set_sticker_set_title</span> <span class="kn">import</span> <span class="n">SetStickerSetTitle</span>
+<span class="kn">from</span> <span class="nn">.set_webhook</span> <span class="kn">import</span> <span class="n">SetWebhook</span>
+<span class="kn">from</span> <span class="nn">.stop_message_live_location</span> <span class="kn">import</span> <span class="n">StopMessageLiveLocation</span>
+<span class="kn">from</span> <span class="nn">.stop_poll</span> <span class="kn">import</span> <span class="n">StopPoll</span>
+<span class="kn">from</span> <span class="nn">.unban_chat_member</span> <span class="kn">import</span> <span class="n">UnbanChatMember</span>
+<span class="kn">from</span> <span class="nn">.unban_chat_sender_chat</span> <span class="kn">import</span> <span class="n">UnbanChatSenderChat</span>
+<span class="kn">from</span> <span class="nn">.unhide_general_forum_topic</span> <span class="kn">import</span> <span class="n">UnhideGeneralForumTopic</span>
+<span class="kn">from</span> <span class="nn">.unpin_all_chat_messages</span> <span class="kn">import</span> <span class="n">UnpinAllChatMessages</span>
+<span class="kn">from</span> <span class="nn">.unpin_all_forum_topic_messages</span> <span class="kn">import</span> <span class="n">UnpinAllForumTopicMessages</span>
+<span class="kn">from</span> <span class="nn">.unpin_all_general_forum_topic_messages</span> <span class="kn">import</span> <span class="n">UnpinAllGeneralForumTopicMessages</span>
+<span class="kn">from</span> <span class="nn">.unpin_chat_message</span> <span class="kn">import</span> <span class="n">UnpinChatMessage</span>
+<span class="kn">from</span> <span class="nn">.upload_sticker_file</span> <span class="kn">import</span> <span class="n">UploadStickerFile</span>
+
+
+<div class="viewcode-block" id="TelegramBotMethods">
+<a class="viewcode-back" href="../../tgram.methods.html#tgram.methods.TelegramBotMethods">[docs]</a>
+<span class="k">class</span> <span class="nc">TelegramBotMethods</span><span class="p">(</span>
+    <span class="n">AddStickerToSet</span><span class="p">,</span>
+    <span class="n">AnswerCallbackQuery</span><span class="p">,</span>
+    <span class="n">AnswerInlineQuery</span><span class="p">,</span>
+    <span class="n">AnswerPreCheckoutQuery</span><span class="p">,</span>
+    <span class="n">AnswerShippingQuery</span><span class="p">,</span>
+    <span class="n">AnswerWebAppQuery</span><span class="p">,</span>
+    <span class="n">ApproveChatJoinRequest</span><span class="p">,</span>
+    <span class="n">Ask</span><span class="p">,</span>
+    <span class="n">BanChatMember</span><span class="p">,</span>
+    <span class="n">BanChatSenderChat</span><span class="p">,</span>
+    <span class="n">Close</span><span class="p">,</span>
+    <span class="n">CloseForumTopic</span><span class="p">,</span>
+    <span class="n">CloseGeneralForumTopic</span><span class="p">,</span>
+    <span class="n">CopyMessage</span><span class="p">,</span>
+    <span class="n">CopyMessages</span><span class="p">,</span>
+    <span class="n">CreateChatInviteLink</span><span class="p">,</span>
+    <span class="n">CreateForumTopic</span><span class="p">,</span>
+    <span class="n">CreateInvoiceLink</span><span class="p">,</span>
+    <span class="n">CreateNewStickerSet</span><span class="p">,</span>
+    <span class="n">DeclineChatJoinRequest</span><span class="p">,</span>
+    <span class="n">DeleteChatPhoto</span><span class="p">,</span>
+    <span class="n">DeleteChatStickerSet</span><span class="p">,</span>
+    <span class="n">DeleteForumTopic</span><span class="p">,</span>
+    <span class="n">DeleteMessage</span><span class="p">,</span>
+    <span class="n">DeleteMessages</span><span class="p">,</span>
+    <span class="n">DeleteMyCommands</span><span class="p">,</span>
+    <span class="n">DeleteStickerFromSet</span><span class="p">,</span>
+    <span class="n">DeleteStickerSet</span><span class="p">,</span>
+    <span class="n">DeleteWebhook</span><span class="p">,</span>
+    <span class="n">DownloadFile</span><span class="p">,</span>
+    <span class="n">EditChatInviteLink</span><span class="p">,</span>
+    <span class="n">EditForumTopic</span><span class="p">,</span>
+    <span class="n">EditGeneralForumTopic</span><span class="p">,</span>
+    <span class="n">EditMessageCaption</span><span class="p">,</span>
+    <span class="n">EditMessageLiveLocation</span><span class="p">,</span>
+    <span class="n">EditMessageMedia</span><span class="p">,</span>
+    <span class="n">EditMessageReplyMarkup</span><span class="p">,</span>
+    <span class="n">EditMessageText</span><span class="p">,</span>
+    <span class="n">ExportChatInviteLink</span><span class="p">,</span>
+    <span class="n">ForwardMessage</span><span class="p">,</span>
+    <span class="n">ForwardMessages</span><span class="p">,</span>
+    <span class="n">GetBusinessConnection</span><span class="p">,</span>
+    <span class="n">GetChat</span><span class="p">,</span>
+    <span class="n">GetChatAdministrators</span><span class="p">,</span>
+    <span class="n">GetChatMember</span><span class="p">,</span>
+    <span class="n">GetChatMemberCount</span><span class="p">,</span>
+    <span class="n">GetChatMenuButton</span><span class="p">,</span>
+    <span class="n">GetCustomEmojiStickers</span><span class="p">,</span>
+    <span class="n">GetFile</span><span class="p">,</span>
+    <span class="n">GetFileUrl</span><span class="p">,</span>
+    <span class="n">GetForumTopicIconStickers</span><span class="p">,</span>
+    <span class="n">GetGameHighScores</span><span class="p">,</span>
+    <span class="n">GetMe</span><span class="p">,</span>
+    <span class="n">GetMyCommands</span><span class="p">,</span>
+    <span class="n">GetMyDefaultAdministratorRights</span><span class="p">,</span>
+    <span class="n">GetMyDescription</span><span class="p">,</span>
+    <span class="n">GetMyName</span><span class="p">,</span>
+    <span class="n">GetMyShortDescription</span><span class="p">,</span>
+    <span class="n">GetStarTransactions</span><span class="p">,</span>
+    <span class="n">GetStickerSet</span><span class="p">,</span>
+    <span class="n">GetUpdates</span><span class="p">,</span>
+    <span class="n">GetUserChatBoosts</span><span class="p">,</span>
+    <span class="n">GetUserProfilePhotos</span><span class="p">,</span>
+    <span class="n">GetWebhookInfo</span><span class="p">,</span>
+    <span class="n">HideGeneralForumTopic</span><span class="p">,</span>
+    <span class="n">LeaveChat</span><span class="p">,</span>
+    <span class="n">LogOut</span><span class="p">,</span>
+    <span class="n">PinChatMessage</span><span class="p">,</span>
+    <span class="n">PromoteChatMember</span><span class="p">,</span>
+    <span class="n">RefundStarPayment</span><span class="p">,</span>
+    <span class="n">ReopenForumTopic</span><span class="p">,</span>
+    <span class="n">ReopenGeneralForumTopic</span><span class="p">,</span>
+    <span class="n">ReplaceStickerInSet</span><span class="p">,</span>
+    <span class="n">RestrictChatMember</span><span class="p">,</span>
+    <span class="n">RevokeChatInviteLink</span><span class="p">,</span>
+    <span class="n">SendAnimation</span><span class="p">,</span>
+    <span class="n">SendAudio</span><span class="p">,</span>
+    <span class="n">SendChatAction</span><span class="p">,</span>
+    <span class="n">SendContact</span><span class="p">,</span>
+    <span class="n">SendDice</span><span class="p">,</span>
+    <span class="n">SendDocument</span><span class="p">,</span>
+    <span class="n">SendGame</span><span class="p">,</span>
+    <span class="n">SendInvoice</span><span class="p">,</span>
+    <span class="n">SendLocation</span><span class="p">,</span>
+    <span class="n">SendMediaFromFileId</span><span class="p">,</span>
+    <span class="n">SendMediaGroup</span><span class="p">,</span>
+    <span class="n">SendMessage</span><span class="p">,</span>
+    <span class="n">SendPaidMedia</span><span class="p">,</span>
+    <span class="n">SendPhoto</span><span class="p">,</span>
+    <span class="n">SendPoll</span><span class="p">,</span>
+    <span class="n">SendSticker</span><span class="p">,</span>
+    <span class="n">SendVenue</span><span class="p">,</span>
+    <span class="n">SendVideo</span><span class="p">,</span>
+    <span class="n">SendVideoNote</span><span class="p">,</span>
+    <span class="n">SendVoice</span><span class="p">,</span>
+    <span class="n">SetChatAdministratorCustomTitle</span><span class="p">,</span>
+    <span class="n">SetChatDescription</span><span class="p">,</span>
+    <span class="n">SetChatMenuButton</span><span class="p">,</span>
+    <span class="n">SetChatPermissions</span><span class="p">,</span>
+    <span class="n">SetChatPhoto</span><span class="p">,</span>
+    <span class="n">SetChatStickerSet</span><span class="p">,</span>
+    <span class="n">SetChatTitle</span><span class="p">,</span>
+    <span class="n">SetCustomEmojiStickerSetThumbnail</span><span class="p">,</span>
+    <span class="n">SetGameScore</span><span class="p">,</span>
+    <span class="n">SetMessageReaction</span><span class="p">,</span>
+    <span class="n">SetMyCommands</span><span class="p">,</span>
+    <span class="n">SetMyDefaultAdministratorRights</span><span class="p">,</span>
+    <span class="n">SetMyDescription</span><span class="p">,</span>
+    <span class="n">SetMyName</span><span class="p">,</span>
+    <span class="n">SetMyShortDescription</span><span class="p">,</span>
+    <span class="n">SetPassportDataErrors</span><span class="p">,</span>
+    <span class="n">SetStickerEmojiList</span><span class="p">,</span>
+    <span class="n">SetStickerKeywords</span><span class="p">,</span>
+    <span class="n">SetStickerMaskPosition</span><span class="p">,</span>
+    <span class="n">SetStickerPositionInSet</span><span class="p">,</span>
+    <span class="n">SetStickerSetThumbnail</span><span class="p">,</span>
+    <span class="n">SetStickerSetTitle</span><span class="p">,</span>
+    <span class="n">SetWebhook</span><span class="p">,</span>
+    <span class="n">StopMessageLiveLocation</span><span class="p">,</span>
+    <span class="n">StopPoll</span><span class="p">,</span>
+    <span class="n">UnbanChatMember</span><span class="p">,</span>
+    <span class="n">UnbanChatSenderChat</span><span class="p">,</span>
+    <span class="n">UnhideGeneralForumTopic</span><span class="p">,</span>
+    <span class="n">UnpinAllChatMessages</span><span class="p">,</span>
+    <span class="n">UnpinAllForumTopicMessages</span><span class="p">,</span>
+    <span class="n">UnpinAllGeneralForumTopicMessages</span><span class="p">,</span>
+    <span class="n">UnpinChatMessage</span><span class="p">,</span>
+    <span class="n">UploadStickerFile</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">pass</span></div>
+
+</pre></div>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Zaid
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>

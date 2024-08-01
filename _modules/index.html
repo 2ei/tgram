@@ -1,0 +1,648 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
+
+    <!-- Generated with Sphinx 7.4.7 and Furo 2024.07.18 -->
+        <title>Overview: module code - Tgram documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=613ab9ff" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">Tgram  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">Tgram  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <h1>All modules for which code is available</h1>
+<ul><li><a href="tgram/bound/callback_query.html">tgram.bound.callback_query</a></li>
+<li><a href="tgram/bound/message.html">tgram.bound.message</a></li>
+<li><a href="tgram/bound/user.html">tgram.bound.user</a></li>
+<li><a href="tgram/decorators.html">tgram.decorators</a></li>
+<ul><li><a href="tgram/decorators/on_all.html">tgram.decorators.on_all</a></li>
+<li><a href="tgram/decorators/on_business_connection.html">tgram.decorators.on_business_connection</a></li>
+<li><a href="tgram/decorators/on_business_message.html">tgram.decorators.on_business_message</a></li>
+<li><a href="tgram/decorators/on_callback_query.html">tgram.decorators.on_callback_query</a></li>
+<li><a href="tgram/decorators/on_channel_post.html">tgram.decorators.on_channel_post</a></li>
+<li><a href="tgram/decorators/on_chat_boost.html">tgram.decorators.on_chat_boost</a></li>
+<li><a href="tgram/decorators/on_chat_join_request.html">tgram.decorators.on_chat_join_request</a></li>
+<li><a href="tgram/decorators/on_chat_member.html">tgram.decorators.on_chat_member</a></li>
+<li><a href="tgram/decorators/on_chosen_inline_result.html">tgram.decorators.on_chosen_inline_result</a></li>
+<li><a href="tgram/decorators/on_deleted_business_messages.html">tgram.decorators.on_deleted_business_messages</a></li>
+<li><a href="tgram/decorators/on_edited_business_message.html">tgram.decorators.on_edited_business_message</a></li>
+<li><a href="tgram/decorators/on_edited_channel_post.html">tgram.decorators.on_edited_channel_post</a></li>
+<li><a href="tgram/decorators/on_edited_message.html">tgram.decorators.on_edited_message</a></li>
+<li><a href="tgram/decorators/on_inline_query.html">tgram.decorators.on_inline_query</a></li>
+<li><a href="tgram/decorators/on_message.html">tgram.decorators.on_message</a></li>
+<li><a href="tgram/decorators/on_message_reaction.html">tgram.decorators.on_message_reaction</a></li>
+<li><a href="tgram/decorators/on_message_reaction_count.html">tgram.decorators.on_message_reaction_count</a></li>
+<li><a href="tgram/decorators/on_my_chat_member.html">tgram.decorators.on_my_chat_member</a></li>
+<li><a href="tgram/decorators/on_poll.html">tgram.decorators.on_poll</a></li>
+<li><a href="tgram/decorators/on_poll_answer.html">tgram.decorators.on_poll_answer</a></li>
+<li><a href="tgram/decorators/on_pre_checkout_query.html">tgram.decorators.on_pre_checkout_query</a></li>
+<li><a href="tgram/decorators/on_removed_chat_boost.html">tgram.decorators.on_removed_chat_boost</a></li>
+<li><a href="tgram/decorators/on_shipping_query.html">tgram.decorators.on_shipping_query</a></li>
+</ul><li><a href="tgram/errors.html">tgram.errors</a></li>
+<li><a href="tgram/filters.html">tgram.filters</a></li>
+<li><a href="tgram/handlers.html">tgram.handlers</a></li>
+<li><a href="tgram/methods.html">tgram.methods</a></li>
+<ul><li><a href="tgram/methods/add_sticker_to_set.html">tgram.methods.add_sticker_to_set</a></li>
+<li><a href="tgram/methods/answer_callback_query.html">tgram.methods.answer_callback_query</a></li>
+<li><a href="tgram/methods/answer_inline_query.html">tgram.methods.answer_inline_query</a></li>
+<li><a href="tgram/methods/answer_pre_checkout_query.html">tgram.methods.answer_pre_checkout_query</a></li>
+<li><a href="tgram/methods/answer_shipping_query.html">tgram.methods.answer_shipping_query</a></li>
+<li><a href="tgram/methods/answer_web_app_query.html">tgram.methods.answer_web_app_query</a></li>
+<li><a href="tgram/methods/approve_chat_join_request.html">tgram.methods.approve_chat_join_request</a></li>
+<li><a href="tgram/methods/ask.html">tgram.methods.ask</a></li>
+<li><a href="tgram/methods/ban_chat_member.html">tgram.methods.ban_chat_member</a></li>
+<li><a href="tgram/methods/ban_chat_sender_chat.html">tgram.methods.ban_chat_sender_chat</a></li>
+<li><a href="tgram/methods/close.html">tgram.methods.close</a></li>
+<li><a href="tgram/methods/close_forum_topic.html">tgram.methods.close_forum_topic</a></li>
+<li><a href="tgram/methods/close_general_forum_topic.html">tgram.methods.close_general_forum_topic</a></li>
+<li><a href="tgram/methods/copy_message.html">tgram.methods.copy_message</a></li>
+<li><a href="tgram/methods/copy_messages.html">tgram.methods.copy_messages</a></li>
+<li><a href="tgram/methods/create_chat_invite_link.html">tgram.methods.create_chat_invite_link</a></li>
+<li><a href="tgram/methods/create_forum_topic.html">tgram.methods.create_forum_topic</a></li>
+<li><a href="tgram/methods/create_invoice_link.html">tgram.methods.create_invoice_link</a></li>
+<li><a href="tgram/methods/create_new_sticker_set.html">tgram.methods.create_new_sticker_set</a></li>
+<li><a href="tgram/methods/decline_chat_join_request.html">tgram.methods.decline_chat_join_request</a></li>
+<li><a href="tgram/methods/delete_chat_photo.html">tgram.methods.delete_chat_photo</a></li>
+<li><a href="tgram/methods/delete_chat_sticker_set.html">tgram.methods.delete_chat_sticker_set</a></li>
+<li><a href="tgram/methods/delete_forum_topic.html">tgram.methods.delete_forum_topic</a></li>
+<li><a href="tgram/methods/delete_message.html">tgram.methods.delete_message</a></li>
+<li><a href="tgram/methods/delete_messages.html">tgram.methods.delete_messages</a></li>
+<li><a href="tgram/methods/delete_my_commands.html">tgram.methods.delete_my_commands</a></li>
+<li><a href="tgram/methods/delete_sticker_from_set.html">tgram.methods.delete_sticker_from_set</a></li>
+<li><a href="tgram/methods/delete_sticker_set.html">tgram.methods.delete_sticker_set</a></li>
+<li><a href="tgram/methods/delete_webhook.html">tgram.methods.delete_webhook</a></li>
+<li><a href="tgram/methods/download_file.html">tgram.methods.download_file</a></li>
+<li><a href="tgram/methods/edit_chat_invite_link.html">tgram.methods.edit_chat_invite_link</a></li>
+<li><a href="tgram/methods/edit_forum_topic.html">tgram.methods.edit_forum_topic</a></li>
+<li><a href="tgram/methods/edit_general_forum_topic.html">tgram.methods.edit_general_forum_topic</a></li>
+<li><a href="tgram/methods/edit_message_caption.html">tgram.methods.edit_message_caption</a></li>
+<li><a href="tgram/methods/edit_message_live_location.html">tgram.methods.edit_message_live_location</a></li>
+<li><a href="tgram/methods/edit_message_media.html">tgram.methods.edit_message_media</a></li>
+<li><a href="tgram/methods/edit_message_reply_markup.html">tgram.methods.edit_message_reply_markup</a></li>
+<li><a href="tgram/methods/edit_message_text.html">tgram.methods.edit_message_text</a></li>
+<li><a href="tgram/methods/export_chat_invite_link.html">tgram.methods.export_chat_invite_link</a></li>
+<li><a href="tgram/methods/forward_message.html">tgram.methods.forward_message</a></li>
+<li><a href="tgram/methods/forward_messages.html">tgram.methods.forward_messages</a></li>
+<li><a href="tgram/methods/get_business_connection.html">tgram.methods.get_business_connection</a></li>
+<li><a href="tgram/methods/get_chat.html">tgram.methods.get_chat</a></li>
+<li><a href="tgram/methods/get_chat_administrators.html">tgram.methods.get_chat_administrators</a></li>
+<li><a href="tgram/methods/get_chat_member.html">tgram.methods.get_chat_member</a></li>
+<li><a href="tgram/methods/get_chat_member_count.html">tgram.methods.get_chat_member_count</a></li>
+<li><a href="tgram/methods/get_chat_menu_button.html">tgram.methods.get_chat_menu_button</a></li>
+<li><a href="tgram/methods/get_custom_emoji_stickers.html">tgram.methods.get_custom_emoji_stickers</a></li>
+<li><a href="tgram/methods/get_file.html">tgram.methods.get_file</a></li>
+<li><a href="tgram/methods/get_file_url.html">tgram.methods.get_file_url</a></li>
+<li><a href="tgram/methods/get_forum_topic_icon_stickers.html">tgram.methods.get_forum_topic_icon_stickers</a></li>
+<li><a href="tgram/methods/get_game_high_scores.html">tgram.methods.get_game_high_scores</a></li>
+<li><a href="tgram/methods/get_me.html">tgram.methods.get_me</a></li>
+<li><a href="tgram/methods/get_my_commands.html">tgram.methods.get_my_commands</a></li>
+<li><a href="tgram/methods/get_my_default_administrator_rights.html">tgram.methods.get_my_default_administrator_rights</a></li>
+<li><a href="tgram/methods/get_my_description.html">tgram.methods.get_my_description</a></li>
+<li><a href="tgram/methods/get_my_name.html">tgram.methods.get_my_name</a></li>
+<li><a href="tgram/methods/get_my_short_description.html">tgram.methods.get_my_short_description</a></li>
+<li><a href="tgram/methods/get_star_transactions.html">tgram.methods.get_star_transactions</a></li>
+<li><a href="tgram/methods/get_sticker_set.html">tgram.methods.get_sticker_set</a></li>
+<li><a href="tgram/methods/get_updates.html">tgram.methods.get_updates</a></li>
+<li><a href="tgram/methods/get_user_chat_boosts.html">tgram.methods.get_user_chat_boosts</a></li>
+<li><a href="tgram/methods/get_user_profile_photos.html">tgram.methods.get_user_profile_photos</a></li>
+<li><a href="tgram/methods/get_webhook_info.html">tgram.methods.get_webhook_info</a></li>
+<li><a href="tgram/methods/hide_general_forum_topic.html">tgram.methods.hide_general_forum_topic</a></li>
+<li><a href="tgram/methods/leave_chat.html">tgram.methods.leave_chat</a></li>
+<li><a href="tgram/methods/log_out.html">tgram.methods.log_out</a></li>
+<li><a href="tgram/methods/pin_chat_message.html">tgram.methods.pin_chat_message</a></li>
+<li><a href="tgram/methods/promote_chat_member.html">tgram.methods.promote_chat_member</a></li>
+<li><a href="tgram/methods/refund_star_payment.html">tgram.methods.refund_star_payment</a></li>
+<li><a href="tgram/methods/reopen_forum_topic.html">tgram.methods.reopen_forum_topic</a></li>
+<li><a href="tgram/methods/reopen_general_forum_topic.html">tgram.methods.reopen_general_forum_topic</a></li>
+<li><a href="tgram/methods/replace_sticker_in_set.html">tgram.methods.replace_sticker_in_set</a></li>
+<li><a href="tgram/methods/restrict_chat_member.html">tgram.methods.restrict_chat_member</a></li>
+<li><a href="tgram/methods/revoke_chat_invite_link.html">tgram.methods.revoke_chat_invite_link</a></li>
+<li><a href="tgram/methods/send_animation.html">tgram.methods.send_animation</a></li>
+<li><a href="tgram/methods/send_audio.html">tgram.methods.send_audio</a></li>
+<li><a href="tgram/methods/send_chat_action.html">tgram.methods.send_chat_action</a></li>
+<li><a href="tgram/methods/send_contact.html">tgram.methods.send_contact</a></li>
+<li><a href="tgram/methods/send_dice.html">tgram.methods.send_dice</a></li>
+<li><a href="tgram/methods/send_document.html">tgram.methods.send_document</a></li>
+<li><a href="tgram/methods/send_game.html">tgram.methods.send_game</a></li>
+<li><a href="tgram/methods/send_invoice.html">tgram.methods.send_invoice</a></li>
+<li><a href="tgram/methods/send_location.html">tgram.methods.send_location</a></li>
+<li><a href="tgram/methods/send_media_from_file_id.html">tgram.methods.send_media_from_file_id</a></li>
+<li><a href="tgram/methods/send_media_group.html">tgram.methods.send_media_group</a></li>
+<li><a href="tgram/methods/send_message.html">tgram.methods.send_message</a></li>
+<li><a href="tgram/methods/send_paid_media.html">tgram.methods.send_paid_media</a></li>
+<li><a href="tgram/methods/send_photo.html">tgram.methods.send_photo</a></li>
+<li><a href="tgram/methods/send_poll.html">tgram.methods.send_poll</a></li>
+<li><a href="tgram/methods/send_sticker.html">tgram.methods.send_sticker</a></li>
+<li><a href="tgram/methods/send_venue.html">tgram.methods.send_venue</a></li>
+<li><a href="tgram/methods/send_video.html">tgram.methods.send_video</a></li>
+<li><a href="tgram/methods/send_video_note.html">tgram.methods.send_video_note</a></li>
+<li><a href="tgram/methods/send_voice.html">tgram.methods.send_voice</a></li>
+<li><a href="tgram/methods/set_chat_administrator_custom_title.html">tgram.methods.set_chat_administrator_custom_title</a></li>
+<li><a href="tgram/methods/set_chat_description.html">tgram.methods.set_chat_description</a></li>
+<li><a href="tgram/methods/set_chat_menu_button.html">tgram.methods.set_chat_menu_button</a></li>
+<li><a href="tgram/methods/set_chat_permissions.html">tgram.methods.set_chat_permissions</a></li>
+<li><a href="tgram/methods/set_chat_photo.html">tgram.methods.set_chat_photo</a></li>
+<li><a href="tgram/methods/set_chat_sticker_set.html">tgram.methods.set_chat_sticker_set</a></li>
+<li><a href="tgram/methods/set_chat_title.html">tgram.methods.set_chat_title</a></li>
+<li><a href="tgram/methods/set_custom_emoji_sticker_set_thumbnail.html">tgram.methods.set_custom_emoji_sticker_set_thumbnail</a></li>
+<li><a href="tgram/methods/set_game_score.html">tgram.methods.set_game_score</a></li>
+<li><a href="tgram/methods/set_message_reaction.html">tgram.methods.set_message_reaction</a></li>
+<li><a href="tgram/methods/set_my_commands.html">tgram.methods.set_my_commands</a></li>
+<li><a href="tgram/methods/set_my_default_administrator_rights.html">tgram.methods.set_my_default_administrator_rights</a></li>
+<li><a href="tgram/methods/set_my_description.html">tgram.methods.set_my_description</a></li>
+<li><a href="tgram/methods/set_my_name.html">tgram.methods.set_my_name</a></li>
+<li><a href="tgram/methods/set_my_short_description.html">tgram.methods.set_my_short_description</a></li>
+<li><a href="tgram/methods/set_passport_data_errors.html">tgram.methods.set_passport_data_errors</a></li>
+<li><a href="tgram/methods/set_sticker_emoji_list.html">tgram.methods.set_sticker_emoji_list</a></li>
+<li><a href="tgram/methods/set_sticker_keywords.html">tgram.methods.set_sticker_keywords</a></li>
+<li><a href="tgram/methods/set_sticker_mask_position.html">tgram.methods.set_sticker_mask_position</a></li>
+<li><a href="tgram/methods/set_sticker_position_in_set.html">tgram.methods.set_sticker_position_in_set</a></li>
+<li><a href="tgram/methods/set_sticker_set_thumbnail.html">tgram.methods.set_sticker_set_thumbnail</a></li>
+<li><a href="tgram/methods/set_sticker_set_title.html">tgram.methods.set_sticker_set_title</a></li>
+<li><a href="tgram/methods/set_webhook.html">tgram.methods.set_webhook</a></li>
+<li><a href="tgram/methods/stop_message_live_location.html">tgram.methods.stop_message_live_location</a></li>
+<li><a href="tgram/methods/stop_poll.html">tgram.methods.stop_poll</a></li>
+<li><a href="tgram/methods/unban_chat_member.html">tgram.methods.unban_chat_member</a></li>
+<li><a href="tgram/methods/unban_chat_sender_chat.html">tgram.methods.unban_chat_sender_chat</a></li>
+<li><a href="tgram/methods/unhide_general_forum_topic.html">tgram.methods.unhide_general_forum_topic</a></li>
+<li><a href="tgram/methods/unpin_all_chat_messages.html">tgram.methods.unpin_all_chat_messages</a></li>
+<li><a href="tgram/methods/unpin_all_forum_topic_messages.html">tgram.methods.unpin_all_forum_topic_messages</a></li>
+<li><a href="tgram/methods/unpin_all_general_forum_topic_messages.html">tgram.methods.unpin_all_general_forum_topic_messages</a></li>
+<li><a href="tgram/methods/unpin_chat_message.html">tgram.methods.unpin_chat_message</a></li>
+<li><a href="tgram/methods/upload_sticker_file.html">tgram.methods.upload_sticker_file</a></li>
+</ul><li><a href="tgram/sync.html">tgram.sync</a></li>
+<li><a href="tgram/tgbot.html">tgram.tgbot</a></li>
+<li><a href="tgram/types/_animation.html">tgram.types._animation</a></li>
+<li><a href="tgram/types/_audio.html">tgram.types._audio</a></li>
+<li><a href="tgram/types/_background_fill.html">tgram.types._background_fill</a></li>
+<li><a href="tgram/types/_background_fill_freeform_gradient.html">tgram.types._background_fill_freeform_gradient</a></li>
+<li><a href="tgram/types/_background_fill_gradient.html">tgram.types._background_fill_gradient</a></li>
+<li><a href="tgram/types/_background_fill_solid.html">tgram.types._background_fill_solid</a></li>
+<li><a href="tgram/types/_background_type.html">tgram.types._background_type</a></li>
+<li><a href="tgram/types/_background_type_chat_theme.html">tgram.types._background_type_chat_theme</a></li>
+<li><a href="tgram/types/_background_type_fill.html">tgram.types._background_type_fill</a></li>
+<li><a href="tgram/types/_background_type_pattern.html">tgram.types._background_type_pattern</a></li>
+<li><a href="tgram/types/_background_type_wallpaper.html">tgram.types._background_type_wallpaper</a></li>
+<li><a href="tgram/types/_birthdate.html">tgram.types._birthdate</a></li>
+<li><a href="tgram/types/_bot_command.html">tgram.types._bot_command</a></li>
+<li><a href="tgram/types/_bot_command_scope.html">tgram.types._bot_command_scope</a></li>
+<li><a href="tgram/types/_bot_command_scope_all_chat_administrators.html">tgram.types._bot_command_scope_all_chat_administrators</a></li>
+<li><a href="tgram/types/_bot_command_scope_all_group_chats.html">tgram.types._bot_command_scope_all_group_chats</a></li>
+<li><a href="tgram/types/_bot_command_scope_all_private_chats.html">tgram.types._bot_command_scope_all_private_chats</a></li>
+<li><a href="tgram/types/_bot_command_scope_chat.html">tgram.types._bot_command_scope_chat</a></li>
+<li><a href="tgram/types/_bot_command_scope_chat_administrators.html">tgram.types._bot_command_scope_chat_administrators</a></li>
+<li><a href="tgram/types/_bot_command_scope_chat_member.html">tgram.types._bot_command_scope_chat_member</a></li>
+<li><a href="tgram/types/_bot_command_scope_default.html">tgram.types._bot_command_scope_default</a></li>
+<li><a href="tgram/types/_bot_description.html">tgram.types._bot_description</a></li>
+<li><a href="tgram/types/_bot_name.html">tgram.types._bot_name</a></li>
+<li><a href="tgram/types/_bot_short_description.html">tgram.types._bot_short_description</a></li>
+<li><a href="tgram/types/_business_connection.html">tgram.types._business_connection</a></li>
+<li><a href="tgram/types/_business_intro.html">tgram.types._business_intro</a></li>
+<li><a href="tgram/types/_business_location.html">tgram.types._business_location</a></li>
+<li><a href="tgram/types/_business_messages_deleted.html">tgram.types._business_messages_deleted</a></li>
+<li><a href="tgram/types/_business_opening_hours.html">tgram.types._business_opening_hours</a></li>
+<li><a href="tgram/types/_business_opening_hours_interval.html">tgram.types._business_opening_hours_interval</a></li>
+<li><a href="tgram/types/_callback_game.html">tgram.types._callback_game</a></li>
+<li><a href="tgram/types/_callback_query.html">tgram.types._callback_query</a></li>
+<li><a href="tgram/types/_chat.html">tgram.types._chat</a></li>
+<li><a href="tgram/types/_chat_administrator_rights.html">tgram.types._chat_administrator_rights</a></li>
+<li><a href="tgram/types/_chat_background.html">tgram.types._chat_background</a></li>
+<li><a href="tgram/types/_chat_boost.html">tgram.types._chat_boost</a></li>
+<li><a href="tgram/types/_chat_boost_added.html">tgram.types._chat_boost_added</a></li>
+<li><a href="tgram/types/_chat_boost_removed.html">tgram.types._chat_boost_removed</a></li>
+<li><a href="tgram/types/_chat_boost_source.html">tgram.types._chat_boost_source</a></li>
+<li><a href="tgram/types/_chat_boost_source_gift_code.html">tgram.types._chat_boost_source_gift_code</a></li>
+<li><a href="tgram/types/_chat_boost_source_giveaway.html">tgram.types._chat_boost_source_giveaway</a></li>
+<li><a href="tgram/types/_chat_boost_source_premium.html">tgram.types._chat_boost_source_premium</a></li>
+<li><a href="tgram/types/_chat_boost_updated.html">tgram.types._chat_boost_updated</a></li>
+<li><a href="tgram/types/_chat_full_info.html">tgram.types._chat_full_info</a></li>
+<li><a href="tgram/types/_chat_invite_link.html">tgram.types._chat_invite_link</a></li>
+<li><a href="tgram/types/_chat_join_request.html">tgram.types._chat_join_request</a></li>
+<li><a href="tgram/types/_chat_location.html">tgram.types._chat_location</a></li>
+<li><a href="tgram/types/_chat_member.html">tgram.types._chat_member</a></li>
+<li><a href="tgram/types/_chat_member_administrator.html">tgram.types._chat_member_administrator</a></li>
+<li><a href="tgram/types/_chat_member_banned.html">tgram.types._chat_member_banned</a></li>
+<li><a href="tgram/types/_chat_member_left.html">tgram.types._chat_member_left</a></li>
+<li><a href="tgram/types/_chat_member_member.html">tgram.types._chat_member_member</a></li>
+<li><a href="tgram/types/_chat_member_owner.html">tgram.types._chat_member_owner</a></li>
+<li><a href="tgram/types/_chat_member_restricted.html">tgram.types._chat_member_restricted</a></li>
+<li><a href="tgram/types/_chat_member_updated.html">tgram.types._chat_member_updated</a></li>
+<li><a href="tgram/types/_chat_permissions.html">tgram.types._chat_permissions</a></li>
+<li><a href="tgram/types/_chat_photo.html">tgram.types._chat_photo</a></li>
+<li><a href="tgram/types/_chat_shared.html">tgram.types._chat_shared</a></li>
+<li><a href="tgram/types/_chosen_inline_result.html">tgram.types._chosen_inline_result</a></li>
+<li><a href="tgram/types/_contact.html">tgram.types._contact</a></li>
+<li><a href="tgram/types/_dice.html">tgram.types._dice</a></li>
+<li><a href="tgram/types/_document.html">tgram.types._document</a></li>
+<li><a href="tgram/types/_encrypted_credentials.html">tgram.types._encrypted_credentials</a></li>
+<li><a href="tgram/types/_encrypted_passport_element.html">tgram.types._encrypted_passport_element</a></li>
+<li><a href="tgram/types/_external_reply_info.html">tgram.types._external_reply_info</a></li>
+<li><a href="tgram/types/_file.html">tgram.types._file</a></li>
+<li><a href="tgram/types/_force_reply.html">tgram.types._force_reply</a></li>
+<li><a href="tgram/types/_forum_topic.html">tgram.types._forum_topic</a></li>
+<li><a href="tgram/types/_forum_topic_closed.html">tgram.types._forum_topic_closed</a></li>
+<li><a href="tgram/types/_forum_topic_created.html">tgram.types._forum_topic_created</a></li>
+<li><a href="tgram/types/_forum_topic_edited.html">tgram.types._forum_topic_edited</a></li>
+<li><a href="tgram/types/_forum_topic_reopened.html">tgram.types._forum_topic_reopened</a></li>
+<li><a href="tgram/types/_game.html">tgram.types._game</a></li>
+<li><a href="tgram/types/_game_high_score.html">tgram.types._game_high_score</a></li>
+<li><a href="tgram/types/_general_forum_topic_hidden.html">tgram.types._general_forum_topic_hidden</a></li>
+<li><a href="tgram/types/_general_forum_topic_unhidden.html">tgram.types._general_forum_topic_unhidden</a></li>
+<li><a href="tgram/types/_giveaway.html">tgram.types._giveaway</a></li>
+<li><a href="tgram/types/_giveaway_completed.html">tgram.types._giveaway_completed</a></li>
+<li><a href="tgram/types/_giveaway_created.html">tgram.types._giveaway_created</a></li>
+<li><a href="tgram/types/_giveaway_winners.html">tgram.types._giveaway_winners</a></li>
+<li><a href="tgram/types/_inaccessible_message.html">tgram.types._inaccessible_message</a></li>
+<li><a href="tgram/types/_inline_keyboard_button.html">tgram.types._inline_keyboard_button</a></li>
+<li><a href="tgram/types/_inline_keyboard_markup.html">tgram.types._inline_keyboard_markup</a></li>
+<li><a href="tgram/types/_inline_query.html">tgram.types._inline_query</a></li>
+<li><a href="tgram/types/_inline_query_result_article.html">tgram.types._inline_query_result_article</a></li>
+<li><a href="tgram/types/_inline_query_result_audio.html">tgram.types._inline_query_result_audio</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_audio.html">tgram.types._inline_query_result_cached_audio</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_document.html">tgram.types._inline_query_result_cached_document</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_gif.html">tgram.types._inline_query_result_cached_gif</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_mpeg4_gif.html">tgram.types._inline_query_result_cached_mpeg4_gif</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_photo.html">tgram.types._inline_query_result_cached_photo</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_sticker.html">tgram.types._inline_query_result_cached_sticker</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_video.html">tgram.types._inline_query_result_cached_video</a></li>
+<li><a href="tgram/types/_inline_query_result_cached_voice.html">tgram.types._inline_query_result_cached_voice</a></li>
+<li><a href="tgram/types/_inline_query_result_contact.html">tgram.types._inline_query_result_contact</a></li>
+<li><a href="tgram/types/_inline_query_result_document.html">tgram.types._inline_query_result_document</a></li>
+<li><a href="tgram/types/_inline_query_result_game.html">tgram.types._inline_query_result_game</a></li>
+<li><a href="tgram/types/_inline_query_result_gif.html">tgram.types._inline_query_result_gif</a></li>
+<li><a href="tgram/types/_inline_query_result_location.html">tgram.types._inline_query_result_location</a></li>
+<li><a href="tgram/types/_inline_query_result_mpeg4_gif.html">tgram.types._inline_query_result_mpeg4_gif</a></li>
+<li><a href="tgram/types/_inline_query_result_photo.html">tgram.types._inline_query_result_photo</a></li>
+<li><a href="tgram/types/_inline_query_result_venue.html">tgram.types._inline_query_result_venue</a></li>
+<li><a href="tgram/types/_inline_query_result_video.html">tgram.types._inline_query_result_video</a></li>
+<li><a href="tgram/types/_inline_query_result_voice.html">tgram.types._inline_query_result_voice</a></li>
+<li><a href="tgram/types/_inline_query_results_button.html">tgram.types._inline_query_results_button</a></li>
+<li><a href="tgram/types/_input_contact_message_content.html">tgram.types._input_contact_message_content</a></li>
+<li><a href="tgram/types/_input_invoice_message_content.html">tgram.types._input_invoice_message_content</a></li>
+<li><a href="tgram/types/_input_location_message_content.html">tgram.types._input_location_message_content</a></li>
+<li><a href="tgram/types/_input_media_animation.html">tgram.types._input_media_animation</a></li>
+<li><a href="tgram/types/_input_media_audio.html">tgram.types._input_media_audio</a></li>
+<li><a href="tgram/types/_input_media_document.html">tgram.types._input_media_document</a></li>
+<li><a href="tgram/types/_input_media_photo.html">tgram.types._input_media_photo</a></li>
+<li><a href="tgram/types/_input_media_video.html">tgram.types._input_media_video</a></li>
+<li><a href="tgram/types/_input_message_content.html">tgram.types._input_message_content</a></li>
+<li><a href="tgram/types/_input_paid_media_photo.html">tgram.types._input_paid_media_photo</a></li>
+<li><a href="tgram/types/_input_paid_media_video.html">tgram.types._input_paid_media_video</a></li>
+<li><a href="tgram/types/_input_poll_option.html">tgram.types._input_poll_option</a></li>
+<li><a href="tgram/types/_input_sticker.html">tgram.types._input_sticker</a></li>
+<li><a href="tgram/types/_input_text_message_content.html">tgram.types._input_text_message_content</a></li>
+<li><a href="tgram/types/_input_venue_message_content.html">tgram.types._input_venue_message_content</a></li>
+<li><a href="tgram/types/_invoice.html">tgram.types._invoice</a></li>
+<li><a href="tgram/types/_keyboard_button.html">tgram.types._keyboard_button</a></li>
+<li><a href="tgram/types/_keyboard_button_poll_type.html">tgram.types._keyboard_button_poll_type</a></li>
+<li><a href="tgram/types/_keyboard_button_request_chat.html">tgram.types._keyboard_button_request_chat</a></li>
+<li><a href="tgram/types/_keyboard_button_request_users.html">tgram.types._keyboard_button_request_users</a></li>
+<li><a href="tgram/types/_labeled_price.html">tgram.types._labeled_price</a></li>
+<li><a href="tgram/types/_link_preview_options.html">tgram.types._link_preview_options</a></li>
+<li><a href="tgram/types/_listener.html">tgram.types._listener</a></li>
+<li><a href="tgram/types/_location.html">tgram.types._location</a></li>
+<li><a href="tgram/types/_login_url.html">tgram.types._login_url</a></li>
+<li><a href="tgram/types/_mask_position.html">tgram.types._mask_position</a></li>
+<li><a href="tgram/types/_menu_button.html">tgram.types._menu_button</a></li>
+<li><a href="tgram/types/_menu_button_commands.html">tgram.types._menu_button_commands</a></li>
+<li><a href="tgram/types/_menu_button_default.html">tgram.types._menu_button_default</a></li>
+<li><a href="tgram/types/_menu_button_web_app.html">tgram.types._menu_button_web_app</a></li>
+<li><a href="tgram/types/_message.html">tgram.types._message</a></li>
+<li><a href="tgram/types/_message_auto_delete_timer_changed.html">tgram.types._message_auto_delete_timer_changed</a></li>
+<li><a href="tgram/types/_message_entity.html">tgram.types._message_entity</a></li>
+<li><a href="tgram/types/_message_id.html">tgram.types._message_id</a></li>
+<li><a href="tgram/types/_message_origin_channel.html">tgram.types._message_origin_channel</a></li>
+<li><a href="tgram/types/_message_origin_chat.html">tgram.types._message_origin_chat</a></li>
+<li><a href="tgram/types/_message_origin_hidden_user.html">tgram.types._message_origin_hidden_user</a></li>
+<li><a href="tgram/types/_message_origin_user.html">tgram.types._message_origin_user</a></li>
+<li><a href="tgram/types/_message_reaction_count_updated.html">tgram.types._message_reaction_count_updated</a></li>
+<li><a href="tgram/types/_message_reaction_updated.html">tgram.types._message_reaction_updated</a></li>
+<li><a href="tgram/types/_order_info.html">tgram.types._order_info</a></li>
+<li><a href="tgram/types/_paid_media_info.html">tgram.types._paid_media_info</a></li>
+<li><a href="tgram/types/_paid_media_photo.html">tgram.types._paid_media_photo</a></li>
+<li><a href="tgram/types/_paid_media_preview.html">tgram.types._paid_media_preview</a></li>
+<li><a href="tgram/types/_paid_media_video.html">tgram.types._paid_media_video</a></li>
+<li><a href="tgram/types/_passport_data.html">tgram.types._passport_data</a></li>
+<li><a href="tgram/types/_passport_element_error.html">tgram.types._passport_element_error</a></li>
+<li><a href="tgram/types/_passport_element_error_data_field.html">tgram.types._passport_element_error_data_field</a></li>
+<li><a href="tgram/types/_passport_element_error_file.html">tgram.types._passport_element_error_file</a></li>
+<li><a href="tgram/types/_passport_element_error_files.html">tgram.types._passport_element_error_files</a></li>
+<li><a href="tgram/types/_passport_element_error_front_side.html">tgram.types._passport_element_error_front_side</a></li>
+<li><a href="tgram/types/_passport_element_error_reverse_side.html">tgram.types._passport_element_error_reverse_side</a></li>
+<li><a href="tgram/types/_passport_element_error_selfie.html">tgram.types._passport_element_error_selfie</a></li>
+<li><a href="tgram/types/_passport_element_error_translation_file.html">tgram.types._passport_element_error_translation_file</a></li>
+<li><a href="tgram/types/_passport_element_error_translation_files.html">tgram.types._passport_element_error_translation_files</a></li>
+<li><a href="tgram/types/_passport_element_error_unspecified.html">tgram.types._passport_element_error_unspecified</a></li>
+<li><a href="tgram/types/_passport_file.html">tgram.types._passport_file</a></li>
+<li><a href="tgram/types/_photo_size.html">tgram.types._photo_size</a></li>
+<li><a href="tgram/types/_poll.html">tgram.types._poll</a></li>
+<li><a href="tgram/types/_poll_answer.html">tgram.types._poll_answer</a></li>
+<li><a href="tgram/types/_poll_option.html">tgram.types._poll_option</a></li>
+<li><a href="tgram/types/_pre_checkout_query.html">tgram.types._pre_checkout_query</a></li>
+<li><a href="tgram/types/_proximity_alert_triggered.html">tgram.types._proximity_alert_triggered</a></li>
+<li><a href="tgram/types/_reaction_count.html">tgram.types._reaction_count</a></li>
+<li><a href="tgram/types/_reaction_type.html">tgram.types._reaction_type</a></li>
+<li><a href="tgram/types/_reaction_type_custom_emoji.html">tgram.types._reaction_type_custom_emoji</a></li>
+<li><a href="tgram/types/_reaction_type_emoji.html">tgram.types._reaction_type_emoji</a></li>
+<li><a href="tgram/types/_refunded_payment.html">tgram.types._refunded_payment</a></li>
+<li><a href="tgram/types/_reply_keyboard_markup.html">tgram.types._reply_keyboard_markup</a></li>
+<li><a href="tgram/types/_reply_keyboard_remove.html">tgram.types._reply_keyboard_remove</a></li>
+<li><a href="tgram/types/_reply_parameters.html">tgram.types._reply_parameters</a></li>
+<li><a href="tgram/types/_response_parameters.html">tgram.types._response_parameters</a></li>
+<li><a href="tgram/types/_revenue_withdrawal_state_failed.html">tgram.types._revenue_withdrawal_state_failed</a></li>
+<li><a href="tgram/types/_revenue_withdrawal_state_pending.html">tgram.types._revenue_withdrawal_state_pending</a></li>
+<li><a href="tgram/types/_revenue_withdrawal_state_succeeded.html">tgram.types._revenue_withdrawal_state_succeeded</a></li>
+<li><a href="tgram/types/_sent_web_app_message.html">tgram.types._sent_web_app_message</a></li>
+<li><a href="tgram/types/_shared_user.html">tgram.types._shared_user</a></li>
+<li><a href="tgram/types/_shipping_address.html">tgram.types._shipping_address</a></li>
+<li><a href="tgram/types/_shipping_option.html">tgram.types._shipping_option</a></li>
+<li><a href="tgram/types/_shipping_query.html">tgram.types._shipping_query</a></li>
+<li><a href="tgram/types/_star_transaction.html">tgram.types._star_transaction</a></li>
+<li><a href="tgram/types/_star_transactions.html">tgram.types._star_transactions</a></li>
+<li><a href="tgram/types/_sticker.html">tgram.types._sticker</a></li>
+<li><a href="tgram/types/_sticker_set.html">tgram.types._sticker_set</a></li>
+<li><a href="tgram/types/_story.html">tgram.types._story</a></li>
+<li><a href="tgram/types/_successful_payment.html">tgram.types._successful_payment</a></li>
+<li><a href="tgram/types/_switch_inline_query_chosen_chat.html">tgram.types._switch_inline_query_chosen_chat</a></li>
+<li><a href="tgram/types/_text_quote.html">tgram.types._text_quote</a></li>
+<li><a href="tgram/types/_transaction_partner_fragment.html">tgram.types._transaction_partner_fragment</a></li>
+<li><a href="tgram/types/_transaction_partner_other.html">tgram.types._transaction_partner_other</a></li>
+<li><a href="tgram/types/_transaction_partner_telegram_ads.html">tgram.types._transaction_partner_telegram_ads</a></li>
+<li><a href="tgram/types/_transaction_partner_user.html">tgram.types._transaction_partner_user</a></li>
+<li><a href="tgram/types/_update.html">tgram.types._update</a></li>
+<li><a href="tgram/types/_user.html">tgram.types._user</a></li>
+<li><a href="tgram/types/_user_chat_boosts.html">tgram.types._user_chat_boosts</a></li>
+<li><a href="tgram/types/_user_profile_photos.html">tgram.types._user_profile_photos</a></li>
+<li><a href="tgram/types/_users_shared.html">tgram.types._users_shared</a></li>
+<li><a href="tgram/types/_venue.html">tgram.types._venue</a></li>
+<li><a href="tgram/types/_video.html">tgram.types._video</a></li>
+<li><a href="tgram/types/_video_chat_ended.html">tgram.types._video_chat_ended</a></li>
+<li><a href="tgram/types/_video_chat_participants_invited.html">tgram.types._video_chat_participants_invited</a></li>
+<li><a href="tgram/types/_video_chat_scheduled.html">tgram.types._video_chat_scheduled</a></li>
+<li><a href="tgram/types/_video_chat_started.html">tgram.types._video_chat_started</a></li>
+<li><a href="tgram/types/_video_note.html">tgram.types._video_note</a></li>
+<li><a href="tgram/types/_voice.html">tgram.types._voice</a></li>
+<li><a href="tgram/types/_web_app_data.html">tgram.types._web_app_data</a></li>
+<li><a href="tgram/types/_web_app_info.html">tgram.types._web_app_info</a></li>
+<li><a href="tgram/types/_webhook_info.html">tgram.types._webhook_info</a></li>
+<li><a href="tgram/types/_write_access_allowed.html">tgram.types._write_access_allowed</a></li>
+<li><a href="tgram/types/type_.html">tgram.types.type_</a></li>
+<li><a href="tgram/utils.html">tgram.utils</a></li>
+</ul>
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, Zaid
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    </body>
+</html>
